@@ -9,7 +9,9 @@ namespace BenManu\StyleGuide;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\Dev\Debug;
 use BenManu\StyleGuide\StyleGuide;
+use BenManu\StyleGuide\KSSService;
 
 class PageService {
 
@@ -37,16 +39,16 @@ class PageService {
 
         // add the styleguide page
         $children = $this->controller->styleguide_service->getNavigation();
-
         foreach($children as $child) {
             $child->request = $this->controller->request;
             $child->setField('Template', StyleGuide::class);
+            // $reference = $child->getReference();
+            // $child->Subsections = $this->controller->styleguide_service->getSectionChildren($reference);
         }
-
         $pages = array_merge(array('StyleGuide' => new ArrayData(array(
-            'ID'        => 'styleGuide',
-            'Title'     => 'Style Guide',
-            'Children'  => $children
+            'ID'                => 'styleGuide',
+            'Title'             => 'Style Guide',
+            'Children'          => $children,
         ))), $pages);
 
         $this->pages = $pages;
@@ -67,11 +69,13 @@ class PageService {
                     'Title'     => $title,
                     'Active'    => $active,
                     'Link'      => $link,
-                    'Template'  => $item->Template
+                    'Template'  => $item->Template,
+                    'Children'  => $item->Children,
                 );
 
                 // if active and has children
-                if($active && isset($item->Children)) {
+                // if($active && isset($item->Children)) {
+                if(isset($item->Children)) {
                     $children = new ArrayList();
 
                     foreach($item->Children as $childItem) {
@@ -79,12 +83,14 @@ class PageService {
                         $childUrlSegment = ($item->ID == "styleGuide" ? $childItem->getLink() : $this->fixURLSegment($childTitle));
                         $childActive = $this->isActive($urlSegment, $childUrlSegment);
                         $childLink = $this->controller->Link($urlSegment, $childUrlSegment);
+                        $reference = $childItem->getReference();
 
                         $childNav = array(
                             'Title'     => $childTitle,
                             'Active'    => $childActive,
                             'Link'      => $childLink,
-                            'Template'  => $childItem->Template
+                            'Template'  => $childItem->Template,
+                            'Children'  => $this->controller->styleguide_service->getSectionChildren($reference),
                         );
 
                         $children->push(new ArrayData($childNav));

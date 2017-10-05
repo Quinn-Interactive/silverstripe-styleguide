@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if !IE]><!-->
+<html lang="$ContentLocale">
+<!--<![endif]-->
+<!--[if IE 6 ]><html lang="$ContentLocale" class="ie ie6"><![endif]-->
+<!--[if IE 7 ]><html lang="$ContentLocale" class="ie ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="$ContentLocale" class="ie ie8"><![endif]-->
+<head>
+	<% base_tag %>
+	<title>$SiteConfig.Title &raquo; Style Guide</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	$MetaTags(false)
+	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
+</head>
+<body>
+	<%-- include BenManu/StyleGuide/SGNavigation --%>
+    <div class="sg-topnav">[TOP NAV]</div>
+    <div class="sg-panel-wrapper">
+        <div class="sg-panel-content">
+            <iframe class="sg-iframe-content" id="sg-iframe-content" src="" name="sg-iframe-content"></iframe>
+        </div>
+        <div class="sg-panel-navigation">
+            <% include BenManu/StyleGuide/SGNavigation %>
+        </div>
+	</div>
+
+    <script>
+        // take the URL and pass it back into the content iframe changing the action
+        var search = document.location.search;
+
+        if (search.length) {
+            search = search+'&content=1';
+        }
+        else {
+            search = '?content=1';
+        }
+        var content_url = document.location.pathname + search + document.location.hash
+        document.getElementById('sg-iframe-content').src = content_url;
+    </script>
+</body>
+</html>

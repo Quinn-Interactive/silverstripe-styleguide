@@ -3,6 +3,7 @@
 namespace BenManu\StyleGuide;
 
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\Dev\Debug;
 
 class KSSSection extends Section {
 
@@ -66,7 +67,6 @@ class KSSSection extends Section {
         }
 
         $description = implode("\n\n", $descriptionSections);
-
         return \Parsedown::instance()->text($description);
     }
 
@@ -141,7 +141,6 @@ class KSSSection extends Section {
     public function getModifiers() {
         $lastIndent = null;
         $modifiers = new ArrayList();
-
         if($modiferComment = $this->getModifiersComment()) {
             $modifierLines = explode("\n", $modiferComment);
             foreach($modifierLines as $line) {
@@ -678,7 +677,7 @@ class KSSSection extends Section {
      * @return String
      */
     public function getLink() {
-        return $this->getReferenceID();
+        return '/sg/style-guide/'.$this->getReferenceID();
     }
 
     public function forTemplate() {

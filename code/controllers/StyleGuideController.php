@@ -7,6 +7,7 @@ use SilverStripe\Core\Injector\Injector;
 use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
 use SilverStripe\CMS\Controllers\ContentController;
+use SilverStripe\Dev\Debug;
 use BenManu\StyleGuide\StyleGuideController;
 
 /**
@@ -90,6 +91,11 @@ class StyleGuideController extends ContentController {
     }
 
     public function index() {
+
+        // if we do not get the ?content=1 param, then we are just displaying the wrapper
+        if (!$this->request->getVar('content')) {
+            return $this->renderWith(array('BenManu\StyleGuide\StyleGuideWrapper'));
+        }
         // render the set template for the route
         if($template = $this->pageService->getTemplate()) {
             return $this->renderWith(array(
@@ -176,22 +182,21 @@ class StyleGuideController extends ContentController {
         return $this->getSections();
     }
 
+
     /**
      * Return sections filtered by the current url action.
      * @return ArrayList
      */
     public function getSections() {
         $sections = null;
-
         if($action = $this->request->param('ChildAction')) {
-            if($action == 'all') {
+            if(true | $action == 'all') {
                 $sections = $this->styleguide_service->getSections();
             } else {
                 $sections = $this->styleguide_service->getSectionChildren($action);
                 $sections->unshift($this->styleguide_service->getSection($action));
             }
         }
-
         return $sections;
     }
 

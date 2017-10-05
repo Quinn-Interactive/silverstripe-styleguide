@@ -1,3 +1,4 @@
+<%-- Pages --%>
 <% if $Navigation %>
 <nav class="sg-navbar sg-navbar--main sg-navbar--static-top sg-navbar--inverse">
 	<div class="sg-container--fluid">
@@ -10,14 +11,13 @@
 			<% loop $Navigation %>
 			<li<% if $Active %> class="active"<% end_if %>>
 				<a href="$Link">$Title</a>
+                <%-- Sections --%>
+                <% if $Active && $Children %>
+            		<% include BenManu/StyleGuide/SGSecondaryNavigation %>
+            	<% end_if %>
 			</li>
 			<% end_loop %>
 		</ul>
 	</div>
 </nav>
-<% loop $Navigation %>
-	<% if $Active && $Children %>
-		<% include BenManu/StyleGuide/SGSecondaryNavigation %>
-	<% end_if %>
-<% end_loop %>
 <% end_if %>

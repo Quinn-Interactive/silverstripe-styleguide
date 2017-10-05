@@ -1,5 +1,5 @@
-<% if SubNavigation %>
-	<nav id="sg-subnav" class="sg-subnav hidden-xs"> 
+<% if $SubNavigation %>
+	<nav id="sg-subnav" class="sg-subnav hidden-xs">
 		<ul class="sg-nav">
 			<% loop $SubNavigation %>
 				<li>

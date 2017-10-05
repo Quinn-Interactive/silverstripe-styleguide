@@ -39,6 +39,35 @@ a {
     width: 100%;
 }
 
+// wrapper components
+.sg-panel-wrapper {
+    display: flex;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.sg-panel-content {
+    flex: 1 1 auto;
+    position: relative;
+    width: 50%;
+}
+.sg-panel-navigation {
+    flex: 1 1 auto;
+    position: relative;
+    width: 50%;
+    background-color: red;
+}
+.sg-iframe-content,
+.sg-iframe-navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .sg-section-wrap {
     padding: 0px 15px;
 }
