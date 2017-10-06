@@ -64,6 +64,7 @@ class StyleGuideController extends ContentController {
             $this->httpError(404);
         }
 
+        // set the service
         $this->setService($this->config()->service);
 
         $this->pageService = new PageService($this);
@@ -82,8 +83,7 @@ class StyleGuideController extends ContentController {
                 $this->redirect($childPage->Link);
             }
         }
-
-        // set the service
+        // set the requirements
         $this->setRequirements();
 
         // load the fixture file
@@ -190,7 +190,7 @@ class StyleGuideController extends ContentController {
     public function getSections() {
         $sections = null;
         if($action = $this->request->param('ChildAction')) {
-            if(true | $action == 'all') {
+            if($action == 'all') {
                 $sections = $this->styleguide_service->getSections();
             } else {
                 $sections = $this->styleguide_service->getSectionChildren($action);

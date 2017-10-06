@@ -1,6 +1,5 @@
-<%-- Pages --%>
 <% if $Navigation %>
-<nav class="sg-navbar sg-navbar--main sg-navbar--static-top sg-navbar--inverse">
+<nav class="nav" data-nav>
 	<div class="sg-container--fluid">
 		<ul class="sg-nav sg-navbar__nav sg-navbar--left">
 			<li>
@@ -8,6 +7,7 @@
 			</li>
 		</ul>
 		<ul class="sg-nav sg-navbar__nav sg-navbar--right">
+            <%-- Pages --%>
 			<% loop $Navigation %>
 			<li<% if $Active %> class="active"<% end_if %>>
 				<a href="$Link">$Title</a>

@@ -27,17 +27,17 @@
 	</div>
 
     <script>
-        // take the URL and pass it back into the content iframe changing the action
-        var search = document.location.search;
+        // on page load, take the URL and pass it back into the content iframe changing the action
+        // var search = document.location.search;
+        // if (search.length) {
+        //     search = search+'&content=1';
+        // }
+        // else {
+        //     search = '?content=1';
+        // }
+        // var content_url = document.location.pathname + search + document.location.hash
+        // document.getElementById('sg-iframe-content').src = content_url;
 
-        if (search.length) {
-            search = search+'&content=1';
-        }
-        else {
-            search = '?content=1';
-        }
-        var content_url = document.location.pathname + search + document.location.hash
-        document.getElementById('sg-iframe-content').src = content_url;
     </script>
 </body>
 </html>

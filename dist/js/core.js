@@ -9,7 +9,7 @@ var site=require("./components/site");site.init();var affix=require("./component
 
 
 },{"../lib/scrollspy":7}],4:[function(require,module,exports){
-"use strict";var $=require("jQuery");module.exports={init:function(){this.exampleToggle()},exampleToggle:function(){$(".sg-example__toggle").on("click",function(){$(this).parent().parent().find(".sg-code").toggleClass("sg-code--active")})}};
+"use strict";var $=require("jQuery");module.exports={init:function(){this.exampleToggle(),this.loadIframe()},exampleToggle:function(){$(".sg-example__toggle").on("click",function(){$(this).parent().parent().find(".sg-code").toggleClass("sg-code--active")})},loadIframe:function(){function e(e){var t=document.createElement("a");t.href=void 0!==e?e:document.location.href,t.search.length?t.search=t.search+"&content=1":t.search="?content=1",$("#sg-iframe-content").attr("src",t.href)}e(),$("[data-nav] a").click(function(t){t.preventDefault(),console.log($(this).attr("href")),e($(this).attr("href"))})}};
 
 
 },{"jQuery":8}],5:[function(require,module,exports){

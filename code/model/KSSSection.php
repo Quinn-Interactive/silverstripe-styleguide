@@ -661,7 +661,10 @@ class KSSSection extends Section {
      * @return Boolean
      */
     public function getActive() {
-        return $this->request->param('Action') == $this->getReferenceID();
+        if ($this->request) {
+            return $this->request->param('Action') == $this->getReferenceID();
+        }
+        return false;
     }
 
     /**
@@ -678,6 +681,10 @@ class KSSSection extends Section {
      */
     public function getLink() {
         return '/sg/style-guide/'.$this->getReferenceID();
+    }
+
+    public function MyLink() {
+        return $this->getLink();
     }
 
     public function forTemplate() {

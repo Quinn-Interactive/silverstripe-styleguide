@@ -54,6 +54,15 @@ class PageService {
         $this->pages = $pages;
     }
 
+    public function getSectionChildren($reference, $levelsDown = 1) {
+        $service = $this->controller->styleguide_service;
+        $children = $service->getSectionChildren($reference,$levelsDown);
+        foreach ($children as $child) {
+            $child->Children = $this->getSectionChildren($child->getReference(), 1);
+        }
+        return $children;
+    }
+
     public function getPages() {
         $navigation = new ArrayList();
 
@@ -82,15 +91,13 @@ class PageService {
                         $childTitle = $childItem->Title;
                         $childUrlSegment = ($item->ID == "styleGuide" ? $childItem->getLink() : $this->fixURLSegment($childTitle));
                         $childActive = $this->isActive($urlSegment, $childUrlSegment);
-                        $childLink = $this->controller->Link($urlSegment, $childUrlSegment);
                         $reference = $childItem->getReference();
-
                         $childNav = array(
                             'Title'     => $childTitle,
                             'Active'    => $childActive,
-                            'Link'      => $childLink,
+                            'Link'      => $childItem->getLink(),
                             'Template'  => $childItem->Template,
-                            'Children'  => $this->controller->styleguide_service->getSectionChildren($reference),
+                            'Children'  => $this->getSectionChildren($reference),
                         );
 
                         $children->push(new ArrayData($childNav));
@@ -98,8 +105,6 @@ class PageService {
 
                     $nav['Children'] = $children;
                 }
-
-                // $nav = array_merge($item, $nav);
 
                 $navigation->push(new ArrayData($nav));
             }

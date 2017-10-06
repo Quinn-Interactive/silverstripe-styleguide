@@ -51,13 +51,14 @@ a {
 .sg-panel-content {
     flex: 1 1 auto;
     position: relative;
-    width: 50%;
+    width: calc(100% - #{$nav-width});
 }
 .sg-panel-navigation {
     flex: 1 1 auto;
     position: relative;
-    width: 50%;
-    background-color: red;
+    width: $nav-width;
+    // background-color: red;
+    overflow: auto;
 }
 .sg-iframe-content,
 .sg-iframe-navigation {
