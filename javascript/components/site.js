@@ -36,7 +36,7 @@ module.exports = {
         // do the initial load on page load
         setSrc();
         // handle navigation clicks
-        $('[data-nav] a').click( function (e){
+        $('[data-sg-nav] a').click( function (e){
             e.preventDefault();
             console.log($(this).attr('href'));
             setSrc($(this).attr('href'));

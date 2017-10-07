@@ -1,12 +1,9 @@
 <% if $Navigation %>
-<nav class="nav" data-nav>
-	<div class="sg-container--fluid">
-		<ul class="sg-nav sg-navbar__nav sg-navbar--left">
+<nav class="sg-nav-container" data-sg-nav>
+		<ul class="sg-nav">
 			<li>
 				<a href="$BaseURL" title="$SiteConfig.Title home">$SiteConfig.Title</a>
 			</li>
-		</ul>
-		<ul class="sg-nav sg-navbar__nav sg-navbar--right">
             <%-- Pages --%>
 			<% loop $Navigation %>
 			<li<% if $Active %> class="active"<% end_if %>>
@@ -18,6 +15,5 @@
 			</li>
 			<% end_loop %>
 		</ul>
-	</div>
 </nav>
 <% end_if %>
