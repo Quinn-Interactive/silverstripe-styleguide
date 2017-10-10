@@ -6,14 +6,45 @@ module.exports = {
 	init: function() {
         this.exampleToggle();
         this.loadIframe();
+        this.menuToggle();
+        this.frameWidth();
+        var self = this;
+        $(window).resize( function (){
+            self.frameWidth();
+        });
 	},
 
-	exampleToggle: function() {
+    exampleToggle: function() {
 		$('.sg-example__toggle').click(function() {
 			var parent = $(this).parent().parent();
 			parent.find('.sg-code').toggleClass('sg-code--active');
 		});
 	},
+
+    menuToggle: function() {
+		$('[data-sg-menu-toggle]').click(function(e) {
+            e.preventDefault();
+			var $menu = $('[data-sg-panel-navigation]', window.parent.document),
+                $button = $(this);
+            $menu.toggle(0,'swing',function () {
+                if ($menu.is(':hidden')) {
+                    $('body', window.parent.document).addClass('sg-menu-is-hidden');
+                    $('body', window.parent.document).removeClass('sg-menu-is-open');
+                }
+                else {
+                    $('body', window.parent.document).addClass('sg-menu-is-open');
+                    $('body', window.parent.document).removeClass('sg-menu-is-hidden');
+                }
+            });
+            $(window).resize();
+		});
+	},
+
+    frameWidth: function () {
+        var frame_width = $('#sg-iframe-content', window.parent.document).width();
+        $('[data-sg-width]').text(frame_width + 'px wide');
+        console.log(frame_width);
+    },
 
     loadIframe: function() {
 
@@ -47,7 +78,7 @@ module.exports = {
         // do the initial load on page load
         setSrc();
         // handle navigation clicks
-        $('[data-sg-nav] a').click( function (e){
+        $('[data-sg-nav-link]').click( function (e){
             e.preventDefault();
             setSrc($(this).attr('href'));
             // set open/closeness if we are clicking on a sg-nav-section-item

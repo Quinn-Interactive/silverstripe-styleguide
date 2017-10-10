@@ -14,14 +14,13 @@
 	$MetaTags(false)
 	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
 </head>
-<body>
-	<%-- include BenManu/StyleGuide/SGNavigation --%>
-    <div class="sg-topnav">[TOP NAV]</div>
+<body class="sg-menu-is-open">
+    <% include BenManu/StyleGuide/SGSectionNav %>
     <div class="sg-panel-wrapper">
         <div class="sg-panel-content">
             <iframe class="sg-iframe-content" id="sg-iframe-content" src="" name="sg-iframe-content"></iframe>
         </div>
-        <div class="sg-panel-navigation">
+        <div class="sg-panel-navigation" data-sg-panel-navigation>
             <% include BenManu/StyleGuide/SGNavigation %>
         </div>
 	</div>

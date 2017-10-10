@@ -2,12 +2,12 @@
 <nav class="sg-nav-container" data-sg-nav>
 		<ul class="sg-nav">
 			<li>
-				<a href="$BaseURL" title="$SiteConfig.Title home">$SiteConfig.Title</a>
+				<a href="$BaseURL" target="_top" title="$SiteConfig.Title home">$SiteConfig.Title</a>
 			</li>
             <%-- Pages --%>
 			<% loop $Navigation %>
 			<li>
-				<a href="$Link">$Title</a>
+				<a href="$Link" target="_top">$Title</a>
                 <%-- Sections --%>
                 <% if $Active && $Children %>
             		<% include BenManu/StyleGuide/SGSecondaryNavigation %>

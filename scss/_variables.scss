@@ -353,9 +353,11 @@ $container-lg:                 $container-large-desktop !default;
 
 
 //== Navigation
-//
+// Must all be same units
 //##
 $nav-width: 15rem;
+$nav-mobile-bp: 38rem;
+$nav-top-height: 2rem;
 
 //== Navbar
 //
