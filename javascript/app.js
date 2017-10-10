@@ -7,4 +7,4 @@ affix('#sg-subnav', { top: 71 });
 var scrollspy = require('./components/scrollspy');
 scrollspy('body', { target: '#sg-subnav' });
 
-require('./components/zeroclipboard');
+require('./components/clipboard-button');
