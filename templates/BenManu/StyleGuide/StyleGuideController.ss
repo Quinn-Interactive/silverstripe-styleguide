@@ -15,7 +15,7 @@
 	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
 </head>
 <body>
-	<div class="sg-container-fluid">
+	<div class="">
 		$Layout
 	</div>
 </body>

@@ -1,7 +1,7 @@
 <ul class="sg-subnav">
     <%-- Sections --%>
     <% loop $Children %>
-    <li<% if $Active %> class="active"<% end_if %>>
+    <li class="<% if $Active %>active <% end_if %>sg-nav-section-item">
         <a href="$Link">$Title</a>
         <% if $Modifiers.Count %>
             <ul class="sg-modnav">

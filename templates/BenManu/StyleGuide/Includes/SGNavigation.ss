@@ -6,7 +6,7 @@
 			</li>
             <%-- Pages --%>
 			<% loop $Navigation %>
-			<li<% if $Active %> class="active"<% end_if %>>
+			<li>
 				<a href="$Link">$Title</a>
                 <%-- Sections --%>
                 <% if $Active && $Children %>

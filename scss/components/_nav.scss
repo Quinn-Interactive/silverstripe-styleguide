@@ -6,9 +6,18 @@
         margin:0;
         padding:0;
         font-weight: bold;
+        font-size: $font-size-base * 1.25;
 		a {
             display: block;
-            padding: .125em 0;
+            padding: .125rem 1rem;
+            color: lighten($link-color, 15%);
+            &:hover {
+                color: $link-color;
+            }
+            &.active {
+                background-color: $gray;
+                color: #fff;
+            }
 		}
 	}
 }
@@ -17,12 +26,30 @@
     margin: 0;
     padding: 0;
     list-style-type:none;
-    li {
-        font-weight: normal;
+    > li {
+        font-weight: bold;
+        font-size: $font-size-base;
+        // text-transform: uppercase;
+        // letter-spacing: .07em;
+        font-size: $font-size-base * 1.15;
         margin: 0;
         padding: 0;
         .sg-subnav {
-            margin: 0 0 0 1rem;
+            > li {
+                text-transform: none;
+                font-weight: normal;
+                letter-spacing: 0;
+                font-size: $font-size-base;
+                .sg-subnav a {
+                    padding-left: 1.75rem;
+                    .sg-subnav a {
+                        padding-left: 2.25rem;
+                        .sg-subnav a {
+                            padding-left: 3rem;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -30,10 +57,19 @@
     margin: 0;
     padding: 0;
     list-style-type:none;
+    display: none;
+    .open &,
+    .active & {
+        display: block;
+    }
     li {
         margin: 0;
         padding: 0;
-        font-family: monospace;
-        font-size: 90%;
+        font-family: $font-family-monospace;
+        font-size: $font-size-base * .9;
+        font-weight: normal;
+        a {
+            color: $gray-light;
+        }
     }
 }
