@@ -2,7 +2,11 @@
 	<div class="sg-section">
 		<div class="sg-intro sg-depth-$Depth">
             <div class="sg-container">
-    			<h2 class="sg-title sg-title-$Depth">$Title</h2>
+    			<h2 class="sg-title sg-title-$Depth">
+                    <a class="sg-reflink" title="Link to this section" aria-hidden="true" target="_top" href="$Link#$ReferenceID">
+                        $Title
+                    </a>
+                </h2>
     			<div class="sg-description">$Description</div>
     			<% if $Parameters %>
     				<ul>
@@ -44,7 +48,11 @@
                 </div>
 				<% loop $Modifiers %>
 				    <div id="$Reference" class="sg-modifier-intro">
-                        <div class="sg-container"><strong>$Name</strong> - $Description</div>
+                        <div class="sg-container">
+                            <a class="sg-reflink" title="Link to this section" aria-hidden="true" target="_top" href="$Link#$Reference">
+                                <strong>$Name</strong> - $Description
+                            </a>
+                        </div>
                     </div>
                     <% include BenManu/StyleGuide/Includes/SGExample Markup=$ExampleHtml %>
 				<% end_loop %>

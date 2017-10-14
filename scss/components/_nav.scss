@@ -83,7 +83,6 @@
 
 .sg-section-nav {
     overflow: hidden;
-    padding: 10px;
     height: $nav-top-height;
     font-size: 14px;
     line-height:1;
@@ -92,11 +91,26 @@
 
 }
 .sg-width {
-    float: left;
-}
-.sg-width {
-    float: left;
+    width: 100vw;
+    padding: 10px;
+    .sg-menu-is-open & {
+        width: calc(100vw - #{$nav-width} + 1px);
+        border-right: 1px solid $gray-light;
+        @media(max-width: #{$nav-mobile-bp}) {
+            width: 100vw;
+            border-right: none;
+
+        }
+    }
 }
 .sg-menu-toggle {
     float: right;
+    padding: 10px;
+    svg {
+        width: 1em;
+        height: 1em;
+    }
+    &:hover svg {
+        fill: $link-color;
+    }
 }

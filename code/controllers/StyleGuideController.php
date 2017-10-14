@@ -91,6 +91,7 @@ class StyleGuideController extends ContentController {
     }
 
     public function index() {
+        // $this->Pagelink = $this->Link($this->request->param('Action'), $this->request->param('ChildAction'));
 
         // if we do not get the ?content=1 param, then we are just displaying the wrapper
         if (!$this->request->getVar('content')) {
