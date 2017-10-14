@@ -3,4 +3,4 @@ Name: StyleGuide
 ---
 BenManu\StyleGuide\StyleGuideController:
   service: BenManu\StyleGuide\KSSService
-  prettify_url: '//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert'
+  prettify_url: '//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=default'

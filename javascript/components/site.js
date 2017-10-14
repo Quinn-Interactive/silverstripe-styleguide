@@ -16,7 +16,7 @@ module.exports = {
 
     exampleToggle: function() {
 		$('.sg-example__toggle').click(function() {
-			var parent = $(this).parent().parent();
+			var parent = $(this).closest('.sg-example-wrapper');
 			parent.find('.sg-code').toggleClass('sg-code--active');
 		});
 	},
