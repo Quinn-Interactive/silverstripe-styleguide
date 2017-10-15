@@ -179,7 +179,7 @@ a {
 .sg-reflink {
     color: inherit;
     position:relative;
-    &:hover {
+    &:hover, :target & {
         color: inherit;
         text-decoration: none;
         &:before {
