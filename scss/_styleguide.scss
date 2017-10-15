@@ -1,14 +1,14 @@
-html {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-body {
-    font-family: $font-family-base;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
-    color: $text-color;
-    background: $gray-lighter;
-}
+// html {
+//   -webkit-tap-highlight-color: rgba(0,0,0,0);
+// }
+//
+// body {
+//     font-family: $font-family-base;
+//     font-size: $font-size-base;
+//     line-height: $line-height-base;
+//     color: $text-color;
+//     background: #fff;
+// }
 
 * {
     @include box-sizing(border-box);
@@ -82,6 +82,7 @@ a {
 .sg-section-wrap {
     // padding: 0px 15px;
     position: relative;
+    overflow: hidden;
 }
 
 .sg-section {
@@ -89,6 +90,7 @@ a {
     // border: 1px solid darken($gray-lighter, 10%);
     // border-radius: 4px;
     position: relative;
+    margin-top: 1rem;
 }
 
 .sg-container {
@@ -105,40 +107,48 @@ a {
 }
 
 .sg-intro {
-    padding: .5rem 0;
-    background-color: #333;
-    color: #fff;
-    &.sg-depth-0 {
-        background-color: #333;
-    }
-    &.sg-depth-1 {
-        background-color: #444;
-    }
-    &.sg-depth-2 {
-        background-color: #555;
-    }
-    &.sg-depth-3 {
-        background-color: #666;
-    }
-    &.sg-depth-4 {
-        background-color: #777;
-    }
-    &.sg-depth-5 {
-        background-color: #888;
-    }
-    &.sg-depth-6 {
-        background-color: #999;
-    }
+    overflow: hidden;
+    // &.sg-depth-0 {
+    //     background-color: #333;
+    // }
+    // &.sg-depth-1 {
+    //     background-color: #444;
+    // }
+    // &.sg-depth-2 {
+    //     background-color: #555;
+    // }
+    // &.sg-depth-3 {
+    //     background-color: #666;
+    // }
+    // &.sg-depth-4 {
+    //     background-color: #777;
+    // }
+    // &.sg-depth-5 {
+    //     background-color: #888;
+    // }
+    // &.sg-depth-6 {
+    //     background-color: #999;
+    // }
 }
 .sg-modifier-intro {
-    padding: 10px 0;
+    padding: .5rem 1rem;
     background-color: #ddd;
-    border-top: 2px solid #333;
+    border-top: 2px solid #888;
+    text-align: right;
+    overflow: hidden;
 }
+.sg-modifier-name {
+    float: left;
+}
+.sg-modifier-description {
+    color: #333;
+}
+
 .sg-subsection-intro {
-    padding: 10px 0;
-    background-color: #333;
+    padding: .5rem 1rem;
+    background-color: #888;
     color: #fff;
+    border-radius: $border-radius-base $border-radius-base 0 0;
     h3 {
         margin-top:0;
         margin-bottom: 0;
@@ -151,6 +161,10 @@ a {
 .sg-title {
     font-size: 18px;
     margin: 0;
+    padding: .5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: $border-radius-base $border-radius-base 0 0;
     &-0 {
         font-size: 36px;
     }
@@ -182,16 +196,18 @@ a {
     &:hover, :target & {
         color: inherit;
         text-decoration: none;
-        &:before {
+        &:after {
             content: '#';
-            position: absolute;
-            margin-left: -.65em;
+            // position: absolute;
+            // margin-left: -.65em;
             opacity: .5;
         }
     }
 }
 .sg-description {
     overflow: hidden;
+    background-color: #eee;
+    padding: 0 1rem;
 }
 .sg-100vw {
     margin-left: calc((100% - 100vw) / 2);
@@ -205,7 +221,8 @@ a {
 }
 .sg-example-label {
     display: block;
-    padding: .25rem 0;
+    position: relative;
+    padding: .5rem 1rem;
     background-color: #ccc;
     font-size: 12px;
     font-weight: 700;
@@ -217,14 +234,13 @@ a {
 
 .sg-code {
     display: none;
-
     &.sg-code--active {
         display: block;
     }
 
     pre.prettyprint {
         border-top: none;
-        padding: 15px 0;
+        padding: 1rem;
         border-radius: 0;
         margin: 0;
         border: 0;
@@ -233,10 +249,17 @@ a {
 }
 
 .sg-example--buttons {
-    float: right;
+
+    position:absolute;
+    right:0;
+    top:0;
     a {
-        padding: 5px 8px;
+        display: inline-block;
+        padding: .5rem 1rem;
+        height: 100%;
+        background-color: #ccc;
         font-size: 12px;
+        line-height:1;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 0.05em;
