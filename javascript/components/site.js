@@ -43,7 +43,6 @@ module.exports = {
     frameWidth: function () {
         var frame_width = $('#sg-iframe-content', window.parent.document).width();
         $('[data-sg-width]').text(frame_width + 'px wide');
-        console.log(frame_width);
     },
 
     loadIframe: function() {
