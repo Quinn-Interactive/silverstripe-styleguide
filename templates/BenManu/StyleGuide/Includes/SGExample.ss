@@ -8,7 +8,7 @@
     </div>
     <div class="sg-container">
         <div class="sg-code">
-            <pre class="prettyprint">$Markup.XML</pre>
+            <pre class="prettyprint lang-html">$Markup.XML</pre>
         </div>
     </div>
     <div class="sg-example">
