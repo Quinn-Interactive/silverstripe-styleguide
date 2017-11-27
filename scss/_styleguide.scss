@@ -82,8 +82,8 @@ a {
 .sg-section-wrap {
     // padding: 0px 15px;
     position: relative;
-    overflow: hidden;
     margin-bottom: 2rem;
+    @include clearfix();
 }
 
 .sg-section {
