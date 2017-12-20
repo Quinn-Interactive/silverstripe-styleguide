@@ -9,11 +9,13 @@
                 </h2>
     			<div class="sg-description">$Description</div>
     			<% if $Parameters %>
-    				<ul>
-    					<% loop $Parameters %>
-    						<li><em>$Name</em> - $Description</li>
-    					<% end_loop %>
-    				</ul>
+                    <div class="sg-parameters">
+                        <ul class="sg-parameters">
+        					<% loop $Parameters %>
+        						<li><em>$Name</em><span>$Description</span></li>
+        					<% end_loop %>
+                        </ul>
+                    </div>
     			<% end_if %>
     			<% if $Compatibility %>
     				<div class="sg-callout sg-callout--success">
