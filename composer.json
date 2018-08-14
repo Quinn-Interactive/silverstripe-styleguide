@@ -22,6 +22,9 @@
         "phpunit/PHPUnit": "~3.7@stable"
     },
     "extra": {
-        "installer-name": "styleguide"
+        "installer-name": "styleguide",
+        "expose": [
+            "dist"
+        ]
     }
 }
