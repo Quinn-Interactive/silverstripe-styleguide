@@ -138,7 +138,7 @@ class StyleGuideController extends ContentController {
 
         // styleguide requirements
         Requirements::css(STYLEGUIDE_BASE . '/dist/css/screen.css');
-        Requirements::javascript(STYLEGUIDE_BASE . '/dist/js/core.js');
+        Requirements::javascript(STYLEGUIDE_BASE . '/dist/js/app.js');
         Requirements::javascript($this->config()->prettify_url);
 
         // theme requirements

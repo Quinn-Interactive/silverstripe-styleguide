@@ -6,7 +6,12 @@
                     <a class="sg-reflink" title="Link to this section" aria-hidden="true" target="_top" href="$Link#$ReferenceID">
                         $Title
                     </a>
+                    <button title="Click to display the css." class="sg-source__toggle">View CSS</button>
                 </h2>
+                <div class="sg-source sg-container">
+                    <pre class="prettyprint lang-scss">$FileSource.RAW</pre>
+                </div>
+
     			<div class="sg-description">$Description</div>
     			<% if $Parameters %>
                     <div class="sg-parameters">
