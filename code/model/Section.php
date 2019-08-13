@@ -72,4 +72,17 @@ class Section extends ViewableData {
         return $controller->renderWith($template);
     }
 
+    /**
+     * Return a DBText object with the source of the file
+     * @return String   Text string of the file.
+     */
+    public function getFileSource() {
+        $file = $this->file;
+        if ($file) {
+            $file->rewind();
+            $source = $file->fread($file->getSize());
+            return htmlentities($source);
+        }
+        return false;
+    }
 }

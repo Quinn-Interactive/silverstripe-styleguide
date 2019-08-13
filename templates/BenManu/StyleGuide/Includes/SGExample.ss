@@ -2,8 +2,8 @@
     <div class="sg-example-label sg-container">
         Example
         <div class="sg-example--buttons">
-            <a data-clipboard-text="$Markup.XML" title="Click to copy me." class="sg-example__copy">Copy</a>
-            <a title="Click to display the code." class="sg-example__toggle">&lt;HTML&gt;</a>
+            <button data-clipboard-text="$Markup.XML" title="Click to copy me." class="sg-example__copy">Copy</button>
+            <button title="Click to display the code." class="sg-example__toggle">&lt;HTML&gt;</button>
         </div>
     </div>
     <div class="sg-container">

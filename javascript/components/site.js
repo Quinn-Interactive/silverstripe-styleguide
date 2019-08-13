@@ -5,6 +5,7 @@ var $ = require('jQuery');
 module.exports = {
 	init: function() {
         this.exampleToggle();
+        this.sourceToggle();
         this.loadIframe();
         this.menuToggle();
         this.frameWidth();
@@ -18,6 +19,23 @@ module.exports = {
 		$('.sg-example__toggle').click(function() {
 			var parent = $(this).closest('.sg-example-wrapper');
 			parent.find('.sg-code').toggleClass('sg-code--active');
+		});
+	},
+
+    sourceToggle: function() {
+		$('.sg-source__toggle').click(function() {
+            var $btn = $(this);
+            var $parent = $(this).closest('.sg-container');
+            var $source = $parent.find('.sg-source');
+            var activeClass = 'sg-source--active';
+            if ($source.hasClass(activeClass)) {
+                $source.removeClass(activeClass);
+                $btn.text('View CSS');
+            }
+            else {
+                $source.addClass(activeClass);
+                $btn.text('Hide CSS');
+            }
 		});
 	},
 
