@@ -8,7 +8,7 @@
                     </a>
                     <button title="Click to display the css." class="sg-source__toggle">View CSS</button>
                 </h2>
-                <div class="sg-source sg-container">
+                <div class="sg-source">
                     <h3 class="sg-source__title">$Pathname</h3>
                     <pre class="prettyprint lang-scss">$FileSource.RAW</pre>
                 </div>
