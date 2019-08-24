@@ -29,9 +29,11 @@
     }
 
     &__title {
+        background-color: #ddd;
+        color: #666;
         font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-        font-size: 14px;
-        padding: 0.5em;
+        font-size: 12px;
+        padding: 0.5em 1rem;
     }
 
     pre.prettyprint {
