@@ -2,6 +2,8 @@
 
 namespace BenManu\StyleGuide;
 
+use SilverStripe\Control\Controller;
+use SilverStripe\Dev\Debug;
 use SilverStripe\ORM\ArrayList;
 
 class KSSSection extends Section {
@@ -662,7 +664,10 @@ class KSSSection extends Section {
      * @return Boolean
      */
     public function getActive() {
-        return $this->request->param('Action') == $this->getReferenceID();
+        if ($this->request) {
+            return $this->request->param('Action') == $this->getReferenceID();
+        }
+        return false;
     }
 
     /**

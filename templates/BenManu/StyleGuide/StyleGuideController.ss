@@ -16,7 +16,7 @@
 </head>
 <body>
 	<% include BenManu/StyleGuide/SGNavigation %>
-	<div class="sg-container-fluid">
+	<div class="sg-layout">
 		$Layout
 	</div>
 </body>
