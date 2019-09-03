@@ -7,7 +7,6 @@ use SilverStripe\Core\Injector\Injector;
 use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
 use SilverStripe\CMS\Controllers\ContentController;
-use BenManu\StyleGuide\StyleGuideController;
 
 /**
  * StyleGuideController
@@ -130,8 +129,8 @@ class StyleGuideController extends ContentController {
     public function setRequirements() {
 
         // styleguide requirements
-        Requirements::css( 'benmanu/silverstripe-styleguide: dist/css/screen.css');
-        Requirements::javascript('benmanu/silverstripe-styleguide: dist/js/core.js');
+        Requirements::css( 'benmanu/silverstripe-styleguide: dist/css/styles.css');
+        Requirements::javascript('benmanu/silverstripe-styleguide: dist/js/app.js');
         Requirements::javascript($this->config()->prettify_url);
 
         // theme requirements

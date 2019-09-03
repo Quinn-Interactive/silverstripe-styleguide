@@ -9,15 +9,13 @@
 		<ul class="sg-nav sg-navbar__nav sg-navbar--right">
 			<% loop $Navigation %>
 			<li<% if $Active %> class="active"<% end_if %>>
-				<a href="$Link">$Title</a>
+				<a href="$Link">$Title [$Children.Count]</a>
+                <% if $Children.Count %>
+                    <% include BenManu/StyleGuide/SGSecondaryNavigation %>
+                <% end_if %>
 			</li>
 			<% end_loop %>
 		</ul>
 	</div>
 </nav>
-<% loop $Navigation %>
-	<% if $Active && $Children %>
-		<% include BenManu/StyleGuide/SGSecondaryNavigation %>
-	<% end_if %>
-<% end_loop %>
 <% end_if %>
