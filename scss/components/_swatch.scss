@@ -1,0 +1,21 @@
+.sg-swatch {
+
+    display: inline-block;
+    margin-bottom: 1em;
+    margin-right: 10px;
+    vertical-align: top;
+    width: $swatch-width;
+
+    &__list {
+        margin-top: 1rem;
+    }
+
+    &__color {
+        height: $swatch-height;
+        width: $swatch-width;
+    }
+
+    &__var {
+
+    }
+}

@@ -1,6 +1,6 @@
 <div id="$ReferenceID" class="sg-section">
     <$Heading class="sg-section__title">$Title</$Heading>
-    <p class="sg-section__description">$Description</p>
+    <div class="sg-section__description">$Description</div>
     <% if $Parameters %>
         <ul class="sg-section__parameters">
             <% loop $Parameters %>
@@ -25,57 +25,18 @@
     <% end_if %>
 
     <% if $getTemplate %>
-        <div class="sg-example">
-            <div class="sg-example__controls">
-                <button data-clipboard-text="$Template.XML" title="Click to copy me." class="sg-example__copy">Copy</button>
-                <button title="Click to display the code." class="sg-example__toggle">Code</button>
-            </div>
-            <div class="sg-example__example">
-                $getTemplate
-            </div>
-            <div class="sg-example__code sg-code">
-                <pre class="prettyprint">$getTemplate.XML</pre>
-            </div>
-        </div>
+        <% include BenManu/StyleGuide/Includes/SGExample Markup=$getTemplate, Reference=$ReferenceID %>
     <% end_if %>
 
     <% if $MarkupNormal %>
-        <div class="sg-example">
-            <div class="sg-example__controls">
-                <button data-clipboard-text="$MarkupNormal.XML" title="Click to copy me." class="sg-example__copy">Copy</button>
-                <button title="Click to display the code." class="sg-example__toggle">Code</button>
-            </div>
-            <div class="sg-example__example">
-                $MarkupNormal
-            </div>
-            <div class="sg-example__code sg-code">
-                <pre class="prettyprint">$MarkupNormal.XML</pre>
-            </div>
-        </div>
+        <% include BenManu/StyleGuide/Includes/SGExample Markup=$MarkupNormal, Reference=$ReferenceID %>
     <% end_if %>
 
     <% if $Modifiers %>
-        <div class="sg-row">
-            <div class="sg-col-sm-12">
-                <h3>Modifiers</h3>
-                <% loop $Modifiers %>
-                    <p id="$Reference"><strong>$Name</strong> - $Description</p>
-                    <div class="sg-row">
-                        <div class="sg-col-sm-12">
-                            <div class="sg-example--buttons">
-                                <button data-clipboard-text="$ExampleHtml.XML" title="Click to copy me." class="sg-example__copy">Copy</button>
-                                <button title="Click to display the code." class="sg-example__toggle">Code</button>
-                            </div>
-                            <div class="sg-example">
-                                $ExampleHtml
-                            </div>
-                            <div class="sg-code">
-                                <pre class="prettyprint">$ExampleHtml.XML</pre>
-                            </div>
-                        </div>
-                    </div>
-                <% end_loop %>
-            </div>
-        </div>
+        <div class="sg-section__modifiersLabel">Modifiers</div>
+        <% loop $Modifiers %>
+            <div id="$Reference" class="sg-section__modifiersLabel"><strong>$Name</strong> - $Description</div>
+            <% include BenManu/StyleGuide/Includes/SGExample Markup=$ExampleHtml, Reference=$Reference %>
+        <% end_loop %>
     <% end_if %>
 </div>

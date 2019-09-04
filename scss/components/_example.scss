@@ -1,6 +1,47 @@
 .sg-example {
+    &__example {
+        border: 1px solid $color-border;
+        border-bottom: 0;
+        padding: 1rem;
+    }
+
     &__controls {
         border: 1px solid $color-border;
-        padding: 0.25em;
+        font-size: 16px;
+        padding: 0.25em 16px;
+        position: relative;
+        text-align: right;
+    }
+
+    &__code {
+        &.-hide {
+            display: none;
+        }
+    }
+
+    &__prettyprint {
+        margin-top: 0;
+    }
+
+    &__btn {
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        display: inline-block;
+        height: 16px;
+        margin-left: 16px;
+        opacity: 0.5;
+        padding: 0;
+        width: 16px;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
     }
 }
