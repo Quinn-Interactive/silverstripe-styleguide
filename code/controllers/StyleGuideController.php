@@ -167,13 +167,13 @@ class StyleGuideController extends ContentController {
         return $this->pageService->getPages();
     }
 
-    /**
-     * Return sections for sub-navigation.
-     * @return ArrayList
-     */
-    public function getSubNavigation() {
-        return $this->getSections();
-    }
+    // /**
+    //  * Return sections for sub-navigation.
+    //  * @return ArrayList
+    //  */
+    // public function getSubNavigation() {
+    //     return $this->getSections();
+    // }
 
     /**
      * Return sections filtered by the current url action.

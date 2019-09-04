@@ -1,0 +1,172 @@
+/*
+#@mixin include-media()
+
+TBD
+
+Styleguide 03_Mixins.includemedia
+*/
+
+.sg-body {
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.sg-html {
+  margin: 0;
+  padding: 0;
+}
+
+.sg-code {
+  overflow: hidden;
+}
+
+pre.prettyprint {
+  overflow: auto;
+  padding: 0.5em;
+}
+
+@media (min-width: 768px) {
+  .sg-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.sg-layout-nav {
+  margin-right: 0;
+  transition: margin-right 0.25s ease;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 15rem;
+}
+
+@media (min-width: 768px) {
+  .sg-layout-nav {
+    flex: 0 0 auto;
+    height: 100%;
+    max-width: none;
+    overflow: visible;
+    position: relative;
+  }
+}
+
+.sg-layout-nav.-hide {
+  margin-right: -15rem;
+}
+
+.sg-layout-content {
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .sg-layout-content {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 0 2rem;
+  }
+}
+
+.sg-nav {
+  background-color: #ccc;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+}
+
+.sg-nav__btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+[data-nav].-hide .sg-nav__btn {
+  color: #000;
+}
+
+[data-nav].-hide .sg-nav__btn:hover {
+  color: #ccc;
+}
+
+.sg-nav__btn:hover {
+  color: #ccc;
+}
+
+.sg-nav__list {
+  margin: 0;
+  padding: 0;
+}
+
+.sg-nav__item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sg-nav__link {
+  color: #000;
+  display: block;
+  margin: 0;
+  padding: 0.25em 1rem;
+  text-decoration: none;
+}
+
+.sg-nav__link.-page {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5em 1rem;
+}
+
+.sg-nav__link.-page.-active {
+  font-weight: bold;
+}
+
+.sg-nav__link.-depth-0 {
+  font-weight: bold;
+}
+
+.sg-nav__link.-depth-2 {
+  padding-left: 0.5rem;
+}
+
+.sg-nav__link.-depth-3 {
+  padding-left: 0.75rem;
+}
+
+.sg-nav__link.-depth-4 {
+  padding-left: 1rem;
+}
+
+.sg-nav__link.-mod {
+  color: #666;
+  font-size: 0.8em;
+}
+
+.sg-section {
+  margin-top: 1rem;
+}
+
+.sg-example__controls {
+  border: 1px solid #ccc;
+  padding: 0.25em;
+}
+
+
+/*# sourceMappingURL=styles.css.map*/

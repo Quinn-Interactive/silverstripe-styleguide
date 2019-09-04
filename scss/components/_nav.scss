@@ -1,0 +1,81 @@
+.sg-nav {
+    background-color: $color-nav-bkgnd;
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+
+    &__btn {
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        color: $color-nav-page;
+        font-size: 1.25em;
+        font-weight: bold;
+        padding: 0.25em 0.5em;
+        position: fixed;
+        right: 0;
+        top: 0;
+
+        [data-nav].-hide & {
+            color: $color-nav;
+
+            &:hover {
+                color: $color-nav-bkgnd;
+            }
+        }
+
+        &:hover {
+            color: $color-nav-bkgnd;
+        }
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__link {
+        color: $color-nav;
+        display: block;
+        margin: 0;
+        padding: 0.25em 1rem;
+        text-decoration: none;
+
+        &.-page {
+            background-color: $color-nav-page-bkgnd;
+            color: $color-nav-page;
+            padding: 0.5em 1rem;
+
+            &.-active {
+                font-weight: bold;
+            }
+        }
+
+        &.-depth-0 {
+            font-weight: bold;
+        }
+
+        &.-depth-2 {
+            padding-left: 0.5rem;
+        }
+
+        &.-depth-3 {
+            padding-left: 0.75rem;
+        }
+
+        &.-depth-4 {
+            padding-left: 1rem;
+        }
+
+        &.-mod {
+            color: $color-nav-mod;
+            font-size: 0.8em;
+        }
+    }
+}

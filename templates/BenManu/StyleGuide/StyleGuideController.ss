@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if !IE]><!-->
-<html lang="$ContentLocale">
+<html lang="$ContentLocale" class="sg-html">
 <!--<![endif]-->
 <!--[if IE 6 ]><html lang="$ContentLocale" class="ie ie6"><![endif]-->
 <!--[if IE 7 ]><html lang="$ContentLocale" class="ie ie7"><![endif]-->
@@ -14,10 +14,12 @@
 	$MetaTags(false)
 	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
 </head>
-<body>
-	<% include BenManu/StyleGuide/SGNavigation %>
+<body class="sg-body">
 	<div class="sg-layout">
-		$Layout
+        <div class="sg-layout-content">
+            $Layout
+        </div>
+        <% include BenManu/StyleGuide/SGNavigation %>
 	</div>
 </body>
 </html>

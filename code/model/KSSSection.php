@@ -358,6 +358,15 @@ class KSSSection extends Section {
     }
 
     /**
+     * Helper method for getting the heading level of the instantiated section
+     *
+     * @return int
+     */
+    public function getHeading() {
+        return 'h' . (int)($this->getDepth() + 1);
+    }
+
+    /**
      * Calculates and returns the depth of a section reference
      *
      * @param string $reference
@@ -664,8 +673,9 @@ class KSSSection extends Section {
      * @return Boolean
      */
     public function getActive() {
-        if ($this->request) {
-            return $this->request->param('Action') == $this->getReferenceID();
+        $request = $this->request ?: Controller::curr()->getRequest();
+        if ($request) {
+            return $request->param('ChildAction') == $this->getReferenceID();
         }
         return false;
     }
