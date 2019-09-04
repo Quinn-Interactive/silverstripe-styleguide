@@ -6,21 +6,46 @@
   "author": "Quinn Interactive, Inc.",
   "scripts": {
     "dev": "yarn development",
+    "dev-lint": "cross-env NODE_ENV=development MIX_LINTING=true node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "yarn development --watch",
+    "watch-lint": "cross-env NODE_ENV=development MIX_LINTING=true node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "yarn production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "lint-js": "eslint src/js/**",
+    "fix-js-dry-run": "eslint src/js/** --fix-dry-run",
+    "fix-js": "eslint src/js/** --fix",
+    "lint-css": "stylelint 'src/scss/**/*.scss' --syntax scss",
+    "fix-css": "stylelint 'src/scss/**/*.scss' --fix --syntax scss"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "2.0.1",
     "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.0",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-vue": "^5.2.3",
     "laravel-mix": "4.0",
+    "laravel-mix-eslint": "^0.1.3",
+    "laravel-mix-stylelint": "^0.2.0",
     "resolve-url-loader": "2.3.1",
     "sass": "^1.22.9",
     "sass-loader": "7.*",
-    "vue-template-compiler": "^2.6.10"
+    "stylelint": "^10.1.0",
+    "stylelint-config-sass-guidelines": "^6.0.0",
+    "stylelint-webpack-plugin": "^0.10.5",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-chunk-rename-plugin": "^1.0.3"
   },
   "dependencies": {
     "clipboard": "^2.0.4",
-    "jquery": "^3.4.1"
+    "core-js": "3"
   }
 }

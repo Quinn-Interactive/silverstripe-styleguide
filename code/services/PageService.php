@@ -10,6 +10,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use BenManu\StyleGuide\StyleGuide;
+use SilverStripe\Dev\Debug;
 
 class PageService {
 
@@ -85,6 +86,7 @@ class PageService {
                             'Title'     => $childTitle,
                             'Active'    => $childActive,
                             'Link'      => $childLink,
+                            'Depth'     => $childItem->getDepth(),
                             'Template'  => $childItem->Template,
                             'Children'  => $this->getSectionChildren($reference),
                         );

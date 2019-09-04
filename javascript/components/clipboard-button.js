@@ -1,5 +1,5 @@
 'use strict';
 
-var Clipboard = require('clipboard');
+const Clipboard = require('clipboard');
 
-new Clipboard('.sg-example__copy');
+new Clipboard('.sg-example__copy'); /* eslint-disable-line no-new */

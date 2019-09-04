@@ -1,0 +1,44 @@
+.sg-layout {
+    @include media('>=tablet') {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+.sg-layout-nav {
+    margin-right: 0;
+    transition: margin-right 0.25s ease;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: $nav-width;
+
+    @include media('>=tablet') {
+        flex: 0 0 auto;
+        height: 100%;
+        max-width: none;
+        overflow: visible;
+        position: relative;
+    }
+
+    &.-hide {
+        margin-right: -$nav-width;
+    }
+}
+
+.sg-layout-content {
+    padding: 0 1rem;
+
+    @include media('>=tablet') {
+        flex: 1 1 auto;
+        overflow: auto;
+        padding: 0 2rem;
+    }
+}
