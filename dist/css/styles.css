@@ -21,7 +21,7 @@ Styleguide 03_Mixins.includemedia
   overflow: hidden;
 }
 
-pre.prettyprint {
+.sg-prettyprint {
   overflow: auto;
   padding: 0.5em;
 }
@@ -40,12 +40,12 @@ pre.prettyprint {
 }
 
 .sg-layout-nav {
+  height: 100%;
   margin-right: 0;
-  transition: margin-right 0.25s ease;
   position: absolute;
   right: 0;
   top: 0;
-  height: 100%;
+  transition: margin-right 0.25s ease;
   width: 15rem;
 }
 
@@ -163,9 +163,72 @@ pre.prettyprint {
   margin-top: 1rem;
 }
 
+.sg-section__description pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.sg-example__example {
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  padding: 1rem;
+}
+
 .sg-example__controls {
   border: 1px solid #ccc;
-  padding: 0.25em;
+  font-size: 16px;
+  padding: 0.25em 16px;
+  position: relative;
+  text-align: right;
+}
+
+.sg-example__code.-hide {
+  display: none;
+}
+
+.sg-example__prettyprint {
+  margin-top: 0;
+}
+
+.sg-example__btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 0;
+  display: inline-block;
+  height: 16px;
+  margin-left: 16px;
+  opacity: 0.5;
+  padding: 0;
+  width: 16px;
+}
+
+.sg-example__btn:hover {
+  opacity: 1;
+}
+
+.sg-example__btn img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.sg-swatch {
+  display: inline-block;
+  margin-bottom: 1em;
+  margin-right: 10px;
+  vertical-align: top;
+  width: 200px;
+}
+
+.sg-swatch__list {
+  margin-top: 1rem;
+}
+
+.sg-swatch__color {
+  height: 50px;
+  width: 200px;
 }
 
 

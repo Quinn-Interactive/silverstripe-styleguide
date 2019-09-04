@@ -24,7 +24,8 @@
     "extra": {
         "installer-name": "styleguide",
         "expose": [
-            "dist"
+            "dist",
+            "images"
         ]
     }
 }

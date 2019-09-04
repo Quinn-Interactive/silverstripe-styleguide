@@ -13,11 +13,11 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "yarn production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "lint-js": "eslint src/js/**",
-    "fix-js-dry-run": "eslint src/js/** --fix-dry-run",
-    "fix-js": "eslint src/js/** --fix",
-    "lint-css": "stylelint 'src/scss/**/*.scss' --syntax scss",
-    "fix-css": "stylelint 'src/scss/**/*.scss' --fix --syntax scss"
+    "lint-js": "eslint js/**",
+    "fix-js-dry-run": "eslint js/** --fix-dry-run",
+    "fix-js": "eslint js/** --fix",
+    "lint-css": "stylelint 'scss/**/*.scss' --syntax scss",
+    "fix-css": "stylelint 'scss/**/*.scss' --fix --syntax scss"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",

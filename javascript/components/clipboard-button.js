@@ -2,4 +2,4 @@
 
 const Clipboard = require('clipboard');
 
-new Clipboard('.sg-example__copy'); /* eslint-disable-line no-new */
+new Clipboard('[data-clipboard-text]'); /* eslint-disable-line no-new */
