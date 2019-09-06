@@ -214,6 +214,19 @@ Styleguide 03_Mixins.includemedia
   width: 100%;
 }
 
+.sg-example__iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.sg-example__iframeWidth {
+  color: #ccc;
+  float: left;
+  font-size: 14px;
+  line-height: 24px;
+}
+
 .sg-swatch {
   display: inline-block;
   margin-bottom: 1em;
