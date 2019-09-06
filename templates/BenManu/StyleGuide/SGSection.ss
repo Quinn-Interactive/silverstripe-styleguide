@@ -25,18 +25,18 @@
     <% end_if %>
 
     <% if $getTemplate %>
-        <% include BenManu/StyleGuide/Includes/SGExample Markup=$getTemplate, Reference=$ReferenceID %>
+        <% include BenManu/StyleGuide/Includes/SGExample Markup=$getTemplate, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
     <% end_if %>
 
     <% if $MarkupNormal %>
-        <% include BenManu/StyleGuide/Includes/SGExample Markup=$MarkupNormal, Reference=$ReferenceID %>
+        <% include BenManu/StyleGuide/Includes/SGExample Markup=$MarkupNormal, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
     <% end_if %>
 
     <% if $Modifiers %>
         <div class="sg-section__modifiersLabel">Modifiers</div>
         <% loop $Modifiers %>
             <div id="$Reference" class="sg-section__modifiersLabel"><strong>$Name</strong> - $Description</div>
-            <% include BenManu/StyleGuide/Includes/SGExample Markup=$ExampleHtml, Reference=$Reference %>
+            <% include BenManu/StyleGuide/Includes/SGExample Markup=$ExampleHtml, Reference=$Reference, NoPadIframe=$NoPadIframe %>
         <% end_loop %>
     <% end_if %>
 </div>

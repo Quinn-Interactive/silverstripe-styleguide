@@ -1,3 +1,7 @@
+// https://github.com/que-etc/resize-observer-polyfill
+import ResizeObserver from 'resize-observer-polyfill';
+import debounce from 'lodash/debounce';
+
 const iframeResizer = ($iframe) => {
     const ref = $iframe.dataset.sgIframe;
     const $widthSpan = document.querySelector(`[data-sg-iframe-width="${ref}"]`);
@@ -23,6 +27,17 @@ const iframeResizeAll = () => {
     });
 };
 
+// resize whenever a wrapper changes width
+if (ResizeObserver) {
+    const $wrappers = document.querySelectorAll('[data-sg-iframe-wrapper]');
+    $wrappers.forEach(($wrapper) => {
+        const $iframe = $wrapper.querySelector('[data-sg-iframe]');
+        const ro = new ResizeObserver(debounce(() => {
+            iframeResizer($iframe);
+        }, 100));
 
-window.addEventListener('resize', iframeResizeAll);
+        ro.observe($wrapper);
+    });
+}
+
 iframeResizeAll();
