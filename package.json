@@ -46,6 +46,10 @@
   },
   "dependencies": {
     "clipboard": "^2.0.4",
-    "core-js": "3"
+    "core-js": "3",
+    "interactjs": "^1.6.1",
+    "lodash": "^4.17.15",
+    "resize-observer-polyfill": "^1.5.1",
+    "srcdoc-polyfill": "^1.0.0"
   }
 }

@@ -172,6 +172,16 @@ Styleguide 03_Mixins.includemedia
   border: 1px solid #ccc;
   border-bottom: 0;
   padding: 1rem;
+  touch-action: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+}
+
+.sg-example__example.-nopad {
+  padding: 0;
 }
 
 .sg-example__controls {
