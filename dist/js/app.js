@@ -99,6 +99,8 @@ __webpack_require__(/*! ./components/clipboard-button */ "./javascript/component
 
 __webpack_require__(/*! ./components/toggle */ "./javascript/components/toggle.js");
 
+__webpack_require__(/*! ./components/iframe */ "./javascript/components/iframe.js");
+
 /***/ }),
 
 /***/ "./javascript/components/clipboard-button.js":
@@ -113,8 +115,52 @@ __webpack_require__(/*! ./components/toggle */ "./javascript/components/toggle.j
 
 var Clipboard = __webpack_require__(/*! clipboard */ "./node_modules/clipboard/dist/clipboard.js");
 
-new Clipboard('[data-clipboard-text]');
+new Clipboard('[data-sg-clipboard-text]');
 /* eslint-disable-line no-new */
+
+/***/ }),
+
+/***/ "./javascript/components/iframe.js":
+/*!*****************************************!*\
+  !*** ./javascript/components/iframe.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var iframeResizer = function iframeResizer($iframe) {
+  var ref = $iframe.dataset.sgIframe;
+  var $widthSpan = document.querySelector("[data-sg-iframe-width=\"".concat(ref, "\"]"));
+  var $doc = $iframe.contentDocument ? $iframe.contentDocument : $iframe.contentWindow.document;
+  var height = $doc.body.offsetHeight;
+  $iframe.style.height = "".concat(height, "px"); // eslint-disable-line no-param-reassign
+
+  if ($widthSpan) {
+    $widthSpan.textContent = "".concat($doc.body.offsetWidth, "px wide");
+  }
+};
+
+var iframeResizeAll = function iframeResizeAll() {
+  var $iframes = document.querySelectorAll('[data-sg-iframe]');
+  $iframes.forEach(function ($iframe) {
+    iframeResizer($iframe); // add a load event just in case
+
+    $iframe.addEventListener('load', function () {
+      iframeResizer($iframe);
+    });
+  });
+};
+
+window.addEventListener('resize', iframeResizeAll);
+iframeResizeAll();
 
 /***/ }),
 
@@ -158,12 +204,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var $toggles = document.querySelectorAll('[data-toggle]');
+var $toggles = document.querySelectorAll('[data-sg-toggle]');
 $toggles.forEach(function ($btn) {
   $btn.addEventListener('click', function () {
-    var id = $btn.dataset.toggle;
-    var $target = document.querySelector("#".concat(id));
-    console.log($target);
+    var id = $btn.dataset.sgToggle;
+    var $target = document.getElementById(id);
 
     if ($target) {
       $target.classList.toggle('-hide');

@@ -5,6 +5,8 @@ namespace BenManu\StyleGuide;
 use SilverStripe\Control\Controller;
 use SilverStripe\Dev\Debug;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\Core\Convert;
+use SilverStripe\ORM\FieldType\DBField;
 
 class KSSSection extends Section {
 
@@ -101,6 +103,14 @@ class KSSSection extends Section {
     public function hasMarkup() {
         return $this->getMarkup() !== null;
     }
+
+    public function Iframeify($markup = null) {
+        $markup = DBField::create_field('HTMLText', $markup);
+
+        $src = $this->customise(['Markup' => $markup])->renderWith([StyleGuideController::class . '_iframe']);
+        return Convert::raw2att($src);
+    }
+
 
     /**
      * Returns the deprecation notice defined in the section
