@@ -4,3 +4,4 @@ require('./components/clipboard-button');
 require('./components/toggle');
 require('./components/resizer');
 require('./components/iframe');
+require('./components/prettyprint');
