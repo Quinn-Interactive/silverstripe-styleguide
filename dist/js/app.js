@@ -105,6 +105,8 @@ __webpack_require__(/*! ./components/resizer */ "./javascript/components/resizer
 
 __webpack_require__(/*! ./components/iframe */ "./javascript/components/iframe.js");
 
+__webpack_require__(/*! ./components/prettyprint */ "./javascript/components/prettyprint.js");
+
 /***/ }),
 
 /***/ "./javascript/components/clipboard-button.js":
@@ -207,6 +209,29 @@ if ($btn && $nav) {
     $nav.classList.add('-hide');
   }
 }
+
+/***/ }),
+
+/***/ "./javascript/components/prettyprint.js":
+/*!**********************************************!*\
+  !*** ./javascript/components/prettyprint.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+// System already adds classes to prettify example html code. We just need to help with the markdown stuff.
+var $codeblocks = document.querySelectorAll('pre code');
+$codeblocks.forEach(function ($block) {
+  $block.classList.add('prettyprint');
+});
 
 /***/ }),
 
