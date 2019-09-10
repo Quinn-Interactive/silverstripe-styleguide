@@ -7,6 +7,7 @@ use SilverStripe\Dev\Debug;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Core\Convert;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Core\Config\Config;
 
 class KSSSection extends Section {
 
@@ -454,6 +455,23 @@ class KSSSection extends Section {
      * @return int
      */
     public static function alphaDepthScoreSort(Section $a, Section $b) {
+        // do we have either of these defined in styleguide_nav?
+        $navSort = Config::inst()->get(StyleGuideController::class, 'styleguide_nav');
+        if ($navSort) {
+            $aSort = array_search($a->getReference(), $navSort);
+            $bSort = array_search($b->getReference(), $navSort);
+            if ($aSort !== false && $bSort !== false) {
+                return $aSort > $bSort ? 1 : -1;
+            }
+            else if ($aSort !== false) {
+                return -1;
+            }
+            else if ($bSort !== false) {
+                return 1;
+            }
+        }
+
+        // fall through to numeric or alpha sorting
         $aNumeric = self::isReferenceNumeric($a->getReference());
         $bNumeric = self::isReferenceNumeric($b->getReference());
 
