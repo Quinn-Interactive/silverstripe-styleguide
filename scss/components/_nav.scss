@@ -136,12 +136,18 @@
         &.-open::before {
             content: '-';
         }
+
+        .sg-nav__item.-searching & {
+            display: none;
+        }
     }
 
     &__search {
         display: none;
 
         html.js & {
+            appearance: none;
+            border: 1px solid $color-border;
             display: block;
             font-size: 1em;
             line-height: 1.25;
