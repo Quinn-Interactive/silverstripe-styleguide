@@ -1,11 +1,11 @@
-<ul class="sg-nav__list">
+<ul class="sg-nav__list<% if $Active %> -active<% end_if %>" data-nav-list>
     <% loop $Children %>
-        <li class="sg-nav__item -sub -depth-$Depth<% if $Active %> -active<% end_if %>">
-            <a class="sg-nav__link -sub -depth-$Depth" href="$Link">$Title</a>
+        <li class="sg-nav__item -sub -depth-$Depth<% if $Active %> -active<% end_if %>" data-nav-item>
+            <a class="sg-nav__link -sub -depth-$Depth<% if $Active %> -active<% end_if %>" data-nav-link href="$Link">$Title</a>
             <% if $Active && $Modifiers %>
-                <ul class="sg-nav__list -mod -depth-$Depth">
+                <ul class="sg-nav__list -mod -depth-$Depth -active">
                     <% loop $Modifiers %>
-                        <li class="sg-nav__item -mod -depth-$Up.Depth"><a class="sg-nav__link -mod -depth-$Up.Depth" data-target="#{$Reference}" href="#{$Reference}" title="$Name">$Name</a></li>
+                        <li class="sg-nav__item -mod -depth-$Up.Depth"><a class="sg-nav__link -mod -depth-$Up.Depth" data-nav-link data-target="#{$Reference}" href="#{$Reference}" title="$Name">$Name</a></li>
                     <% end_loop %>
                 </ul>
             <% end_if %>

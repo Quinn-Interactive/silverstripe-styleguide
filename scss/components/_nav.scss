@@ -32,6 +32,16 @@
     &__list {
         margin: 0;
         padding: 0;
+
+        html.js & {
+            display: none;
+
+            &.-active,
+            &.-section,
+            &.-open {
+                display: block;
+            }
+        }
     }
 
     &__item {
@@ -46,6 +56,10 @@
         margin: 0;
         padding: 0.25em 1rem;
         text-decoration: none;
+
+        &.-active {
+            background-color: $color-nav-bkgnd-active;
+        }
 
         &.-page {
             background-color: $color-nav-page-bkgnd;
@@ -80,6 +94,29 @@
         &.-mod {
             color: $color-nav-mod;
             font-size: 0.8em;
+        }
+    }
+
+    &__toggle {
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        float: right;
+        height: 0;
+        width: 0;
+
+        &::before {
+            content: '+';
+            font-size: 120%;
+            font-weight: bold;
+            padding: 0.25em;
+            position: absolute;
+            right: 0.5rem;
+        }
+
+        &.-open::before {
+            content: '-';
         }
     }
 }
