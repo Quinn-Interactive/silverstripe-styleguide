@@ -1,7 +1,7 @@
 <% if $Navigation %>
 <div class="sg-layout-nav" data-sg-nav>
     <nav class="sg-nav">
-        <button class="sg-nav__btn">☰</button>
+        <button class="sg-nav__btn" data-sg-nav-btn>☰</button>
         <ul class="sg-nav__list -section">
             <li class="sg-nav__item -home -page">
                 <a class="sg-nav__link -home -page" href="$BaseURL" title="$SiteConfig.Title home">$SiteConfig.Title</a>
