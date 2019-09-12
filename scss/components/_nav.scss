@@ -41,6 +41,14 @@
             &.-open {
                 display: block;
             }
+
+            &.-searching {
+                display: none;
+
+                &.-found {
+                    display: block;
+                }
+            }
         }
     }
 
@@ -48,6 +56,14 @@
         list-style: none;
         margin: 0;
         padding: 0;
+
+        &.-searching {
+            display: none;
+
+            &.-found {
+                display: block;
+            }
+        }
     }
 
     &__link {
@@ -106,6 +122,8 @@
         height: 0;
         width: 0;
 
+
+
         &::before {
             content: '+';
             font-size: 120%;
@@ -117,6 +135,19 @@
 
         &.-open::before {
             content: '-';
+        }
+    }
+
+    &__search {
+        display: none;
+
+        html.js & {
+            display: block;
+            font-size: 1em;
+            line-height: 1.25;
+            margin: 0.5rem 1rem;
+            padding: 0.25em;
+            width: calc(100% - 2rem);
         }
     }
 }
