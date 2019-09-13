@@ -3,6 +3,7 @@
 namespace BenManu\StyleGuide;
 
 use SilverStripe\Control\Controller;
+use SilverStripe\Control\Director;
 use SilverStripe\View\ViewableData;
 use SplFileObject;
 
@@ -70,6 +71,45 @@ class Section extends ViewableData {
         }
 
         return $controller->renderWith($template);
+    }
+
+    /**
+     * Returns the path to the source filename for where the comment block was located
+     *
+     * @return string
+     */
+    public function getFileType() {
+        $path = $this->getPathname();
+        $ext = pathinfo($path, PATHINFO_EXTENSION);
+        return strtolower($ext);
+    }
+
+    /**
+     * Returns the path to the source filename for where the comment block was located
+     *
+     * @return string
+     */
+    public function getPathname() {
+        if ($this->file === null) {
+            return '';
+        }
+        $root = Director::baseFolder();
+        $path = $this->file->getPathname();
+        return substr($path,strlen($root));
+    }
+
+    /**
+     * Return a DBText object with the source of the file
+     * @return String   Text string of the file.
+     */
+    public function getFileSource() {
+        $file = $this->file;
+        if ($file) {
+            $file->rewind();
+            $source = $file->fread($file->getSize());
+            return htmlentities($source);
+        }
+        return false;
     }
 
 }
