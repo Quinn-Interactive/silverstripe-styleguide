@@ -25,18 +25,30 @@
     <% end_if %>
 
     <% if $getTemplate %>
-        <% include BenManu/StyleGuide/Includes/SGExample Markup=$getTemplate, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
+        <% if $ResponsivePlayground %>
+            <% include BenManu/StyleGuide/Includes/SGExampleIframe Markup=$getTemplate, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
+        <% else %>
+            <% include BenManu/StyleGuide/Includes/SGExample Markup=$getTemplate, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
+        <% end_if %>
     <% end_if %>
 
     <% if $MarkupNormal %>
-        <% include BenManu/StyleGuide/Includes/SGExample Markup=$MarkupNormal, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
+        <% if $ResponsivePlayground %>
+            <% include BenManu/StyleGuide/Includes/SGExampleIframe Markup=$MarkupNormal, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
+        <% else %>
+            <% include BenManu/StyleGuide/Includes/SGExample Markup=$MarkupNormal, Reference=$ReferenceID, NoPadIframe=$NoPadIframe %>
+        <% end_if %>
     <% end_if %>
 
     <% if $Modifiers %>
         <div class="sg-section__modifiersLabel">Modifiers</div>
         <% loop $Modifiers %>
             <div id="$Reference" class="sg-section__modifiersLabel"><strong>$Name</strong> - $Description</div>
-            <% include BenManu/StyleGuide/Includes/SGExample Markup=$ExampleHtml, Reference=$Reference, NoPadIframe=$NoPadIframe %>
+            <% if $ResponsivePlayground %>
+                <% include BenManu/StyleGuide/Includes/SGExampleIframe Markup=$ExampleHtml, Reference=$Reference, NoPadIframe=$NoPadIframe %>
+            <% else %>
+                <% include BenManu/StyleGuide/Includes/SGExample Markup=$ExampleHtml, Reference=$Reference, NoPadIframe=$NoPadIframe %>
+            <% end_if %>
         <% end_loop %>
     <% end_if %>
 </div>
