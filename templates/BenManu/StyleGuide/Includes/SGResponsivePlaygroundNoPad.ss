@@ -1,1 +1,0 @@
-<% include BenManu/StyleGuide/Includes/SGResponsivePlayground ReferenceID=$ReferenceID, Heading=$Heading, Title=$Title, Description=$Description, Parameters=$Parameters, Compatibility=$Compatibility, Experimental=$Experimental, Deprecated=$Deprecated, getTemplate=$getTemplate, MarkupNormal=$MarkupNormal, Modifiers=$Modifiers, NoPadIframe=true %>
