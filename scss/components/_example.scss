@@ -30,6 +30,16 @@
         margin-top: 0;
     }
 
+    &__filepath {
+        background-color: $color-code-bkgnd;
+        border: 1px solid $color-border;
+        border-width: 0 1px 1px;
+        color: #000;
+        font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
     &__btn {
         appearance: none;
         background-color: transparent;
