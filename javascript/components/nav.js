@@ -12,11 +12,8 @@ const cqReevaluate = () => {
     // https://github.com/ausi/cq-prolyfill
     if (window.cqApi) {
         delay(() => {
-            window.cqApi.reevaluate(false, function() {
-                // Do something after all elements were updated
-                console.log('reevaluated');
-            });
-        }, 300);
+            window.cqApi.reevaluate(false);
+        }, 260);
     }
 };
 
