@@ -1,9 +1,24 @@
+import delay from 'lodash/delay';
+
 const $nav = document.querySelector('[data-sg-nav]');
 const $btn = document.querySelector('[data-sg-nav-btn]');
 const $lists = document.querySelectorAll('[data-sg-nav-list]');
 const $items = document.querySelectorAll('[data-sg-nav-item]');
 const $searchableLists = document.querySelectorAll('[data-sg-nav-searchable] [data-sg-nav-list]');
 const $searchableItems = document.querySelectorAll('[data-sg-nav-searchable] [data-sg-nav-item]');
+
+const cqReevaluate = () => {
+    // reevaluate cq-prolyfill if we are using it
+    // https://github.com/ausi/cq-prolyfill
+    if (window.cqApi) {
+        delay(() => {
+            window.cqApi.reevaluate(false, function() {
+                // Do something after all elements were updated
+                console.log('reevaluated');
+            });
+        }, 300);
+    }
+};
 
 // add section classes
 $lists.forEach(($list) => {
@@ -34,12 +49,14 @@ if ($btn && $nav) {
     // add event listener to the btn
     $btn.addEventListener('click', () => {
         $nav.classList.toggle('-hide');
+        cqReevaluate();
     });
 
     // if we open on a mobile device, start with the nav hidden
     const mobileQuery = window.matchMedia('(max-width: 768px)');
     if (mobileQuery.matches) {
         $nav.classList.add('-hide');
+        cqReevaluate();
     }
 }
 
