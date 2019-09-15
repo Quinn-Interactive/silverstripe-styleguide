@@ -3,11 +3,12 @@
 namespace BenManu\StyleGuide;
 
 use SilverStripe\Control\Controller;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Convert;
 use SilverStripe\Dev\Debug;
 use SilverStripe\ORM\ArrayList;
-use SilverStripe\Core\Convert;
 use SilverStripe\ORM\FieldType\DBField;
-use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
 
 class KSSSection extends Section {
 
@@ -82,7 +83,12 @@ class KSSSection extends Section {
      */
     public function getMarkup() {
         if($markupComment = $this->getMarkupComment()) {
-            return trim(preg_replace('/^\s*Markup:/i', '', $markupComment));
+            // remove title
+            $markup = trim(preg_replace('/^\s*Markup:/i', '', $markupComment));
+            // escape '$modifierClass'
+            $markup = str_replace('$modifierClass', '\$modifierClass', $markup);
+            $controller = Controller::curr();
+            return $controller->renderWith(SSViewer::fromString($markup));
         }
     }
 
