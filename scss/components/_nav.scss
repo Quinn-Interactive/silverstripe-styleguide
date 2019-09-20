@@ -73,6 +73,24 @@
         padding: 0.25em 1rem;
         text-decoration: none;
 
+        &:link {
+            color: $color-nav;
+        }
+
+        &:visited {
+            color: $color-nav;
+        }
+
+        &:hover {
+            background-color: lighten($color-nav-bkgnd-active, 10%);
+            color: $color-nav;
+        }
+
+        &:active {
+            background-color: $color-nav-bkgnd-active;
+            color: $color-nav;
+        }
+
         &.-active {
             background-color: $color-nav-bkgnd-active;
         }
