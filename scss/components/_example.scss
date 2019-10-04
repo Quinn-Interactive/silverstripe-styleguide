@@ -2,6 +2,7 @@
     &__example {
         border: 1px solid $color-border;
         border-bottom: 0;
+        box-sizing: border-box;
         padding: 1rem;
         touch-action: none;
         user-select: none;
