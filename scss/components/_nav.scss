@@ -1,22 +1,177 @@
 .sg-nav {
-	margin-bottom: 0;
-	padding-left: 0; // Override default ul/ol
-	list-style: none;
-	@include clearfix;
+    background-color: $color-nav-bkgnd;
+    height: 100%;
+    overflow: auto;
+    width: 100%;
 
-	> li {
-		position: relative;
-		display: block;
+    &__btn {
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        color: $color-nav-page;
+        font-size: 1.25em;
+        font-weight: bold;
+        padding: 0.25em 0.5em;
+        position: fixed;
+        right: 0;
+        top: 0;
 
-		> a {
-			position: relative;
-			display: block;
-			padding: 10px 15px;
-			&:hover,
-			&:focus {
-				text-decoration: none;
-				background-color: $nav-link-hover-bg;
-			}
-		}
-	}
+        [data-nav].-hide & {
+            color: $color-nav;
+
+            &:hover {
+                color: $color-nav-bkgnd;
+            }
+        }
+
+        &:hover {
+            color: $color-nav-bkgnd;
+        }
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+
+        html.js & {
+            display: none;
+
+            &.-active,
+            &.-section,
+            &.-open {
+                display: block;
+            }
+
+            &.-searching {
+                display: none;
+
+                &.-found {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__item {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        &.-searching {
+            display: none;
+
+            &.-found {
+                display: block;
+            }
+        }
+    }
+
+    &__link {
+        color: $color-nav;
+        display: block;
+        margin: 0;
+        padding: 0.25em 1rem;
+        text-decoration: none;
+
+        &:link {
+            color: $color-nav;
+        }
+
+        &:visited {
+            color: $color-nav;
+        }
+
+        &:hover {
+            background-color: lighten($color-nav-bkgnd-active, 10%);
+            color: $color-nav;
+        }
+
+        &:active {
+            background-color: $color-nav-bkgnd-active;
+            color: $color-nav;
+        }
+
+        &.-active {
+            background-color: $color-nav-bkgnd-active;
+        }
+
+        &.-page {
+            background-color: $color-nav-page-bkgnd;
+            color: $color-nav-page;
+            padding: 0.5em 1rem;
+
+            &.-active {
+                font-weight: bold;
+            }
+        }
+
+        &.-depth-0 {
+            font-weight: bold;
+        }
+
+        &.-depth-2 {
+            padding-left: 1.5rem;
+        }
+
+        &.-depth-3 {
+            padding-left: 2rem;
+        }
+
+        &.-depth-4 {
+            padding-left: 2.5rem;
+        }
+
+        &.-depth-5 {
+            padding-left: 3rem;
+        }
+
+        &.-mod {
+            color: $color-nav-mod;
+            font-size: 0.8em;
+        }
+    }
+
+    &__toggle {
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        float: right;
+        height: 0;
+        width: 0;
+
+
+
+        &::before {
+            content: '+';
+            font-size: 120%;
+            font-weight: bold;
+            padding: 0.25em;
+            position: absolute;
+            right: 0.5rem;
+        }
+
+        &.-open::before {
+            content: '-';
+        }
+
+        .sg-nav__item.-searching & {
+            display: none;
+        }
+    }
+
+    &__search {
+        display: none;
+
+        html.js & {
+            appearance: none;
+            border: 1px solid $color-border;
+            display: block;
+            font-size: 1em;
+            line-height: 1.25;
+            margin: 0.5rem 1rem;
+            padding: 0.25em;
+            width: calc(100% - 2rem);
+        }
+    }
 }

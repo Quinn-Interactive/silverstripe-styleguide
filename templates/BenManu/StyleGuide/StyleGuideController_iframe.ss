@@ -14,12 +14,7 @@
 	$MetaTags(false)
 	<link rel="shortcut icon" href="$ThemeDir/images/favicon.ico" />
 </head>
-<body class="sg-body">
-	<div class="sg-layout">
-        <div class="sg-layout-content">
-            $Layout
-        </div>
-        <% include BenManu/StyleGuide/SGNavigation %>
-	</div>
+<body class="sg-iframe-body">
+    $Markup
 </body>
 </html>

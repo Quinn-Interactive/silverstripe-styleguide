@@ -1,0 +1,78 @@
+.sg-example {
+    &__example {
+        border: 1px solid $color-border;
+        border-bottom: 0;
+        box-sizing: border-box;
+        padding: 1rem;
+        touch-action: none;
+        user-select: none;
+        width: 100%;
+
+        &.-nopad {
+            padding: 0;
+        }
+    }
+
+    &__controls {
+        border: 1px solid $color-border;
+        font-size: 16px;
+        padding: 0.25em 16px;
+        position: relative;
+        text-align: right;
+    }
+
+    &__code {
+        &.-hide {
+            display: none;
+        }
+    }
+
+    &__prettyprint {
+        margin-top: 0;
+    }
+
+    &__filepath {
+        background-color: $color-code-bkgnd;
+        border: 1px solid $color-border;
+        border-width: 0 1px 1px;
+        color: #000;
+        font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    &__btn {
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        display: inline-block;
+        height: 16px;
+        margin-left: 16px;
+        opacity: 0.5;
+        padding: 0;
+        width: 16px;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__iframe {
+        border: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__iframeWidth {
+        color: $color-border;
+        float: left;
+        font-size: 14px;
+        line-height: 24px;
+    }
+}

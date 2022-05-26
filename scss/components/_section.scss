@@ -1,0 +1,17 @@
+.sg-section {
+    margin-top: 1rem;
+
+    &__description {
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    }
+
+    &__modifiersLabel {
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+        padding: 0;
+    }
+}

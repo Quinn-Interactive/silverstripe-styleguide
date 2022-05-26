@@ -2,7 +2,13 @@
 
 namespace BenManu\StyleGuide;
 
+use SilverStripe\Control\Controller;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Convert;
+use SilverStripe\Dev\Debug;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\View\SSViewer;
 
 class KSSSection extends Section {
 
@@ -77,7 +83,12 @@ class KSSSection extends Section {
      */
     public function getMarkup() {
         if($markupComment = $this->getMarkupComment()) {
-            return trim(preg_replace('/^\s*Markup:/i', '', $markupComment));
+            // remove title
+            $markup = trim(preg_replace('/^\s*Markup:/i', '', $markupComment));
+            // escape '$modifierClass'
+            $markup = str_replace('$modifierClass', '\$modifierClass', $markup);
+            $controller = Controller::curr();
+            return $controller->renderWith(SSViewer::fromString($markup));
         }
     }
 
@@ -99,6 +110,14 @@ class KSSSection extends Section {
     public function hasMarkup() {
         return $this->getMarkup() !== null;
     }
+
+    public function Iframeify($markup = null) {
+        $markup = DBField::create_field('HTMLText', $markup);
+
+        $src = $this->customise(['Markup' => $markup])->renderWith([StyleGuideController::class . '_iframe']);
+        return Convert::raw2att($src);
+    }
+
 
     /**
      * Returns the deprecation notice defined in the section
@@ -356,6 +375,15 @@ class KSSSection extends Section {
     }
 
     /**
+     * Helper method for getting the heading level of the instantiated section
+     *
+     * @return int
+     */
+    public function getHeading() {
+        return 'h' . (int)($this->getDepth() + 1);
+    }
+
+    /**
      * Calculates and returns the depth of a section reference
      *
      * @param string $reference
@@ -433,6 +461,23 @@ class KSSSection extends Section {
      * @return int
      */
     public static function alphaDepthScoreSort(Section $a, Section $b) {
+        // do we have either of these defined in styleguide_nav?
+        $navSort = Config::inst()->get(StyleGuideController::class, 'styleguide_nav');
+        if ($navSort) {
+            $aSort = array_search($a->getReference(), $navSort);
+            $bSort = array_search($b->getReference(), $navSort);
+            if ($aSort !== false && $bSort !== false) {
+                return $aSort > $bSort ? 1 : -1;
+            }
+            else if ($aSort !== false) {
+                return -1;
+            }
+            else if ($bSort !== false) {
+                return 1;
+            }
+        }
+
+        // fall through to numeric or alpha sorting
         $aNumeric = self::isReferenceNumeric($a->getReference());
         $bNumeric = self::isReferenceNumeric($b->getReference());
 
@@ -662,7 +707,11 @@ class KSSSection extends Section {
      * @return Boolean
      */
     public function getActive() {
-        return $this->request->param('Action') == $this->getReferenceID();
+        $request = $this->request ?: Controller::curr()->getRequest();
+        if ($request) {
+            return $request->param('ChildAction') == $this->getReferenceID();
+        }
+        return false;
     }
 
     /**

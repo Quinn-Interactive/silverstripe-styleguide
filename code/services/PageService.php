@@ -10,6 +10,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use BenManu\StyleGuide\StyleGuide;
+use SilverStripe\Dev\Debug;
 
 class PageService {
 
@@ -79,12 +80,15 @@ class PageService {
                         $childUrlSegment = ($item->ID == "styleGuide" ? $childItem->getLink() : $this->fixURLSegment($childTitle));
                         $childActive = $this->isActive($urlSegment, $childUrlSegment);
                         $childLink = $this->controller->Link($urlSegment, $childUrlSegment);
+                        $reference = $childItem->getReference();
 
                         $childNav = array(
                             'Title'     => $childTitle,
                             'Active'    => $childActive,
                             'Link'      => $childLink,
-                            'Template'  => $childItem->Template
+                            'Depth'     => $childItem->getDepth(),
+                            'Template'  => $childItem->Template,
+                            'Children'  => $this->getSectionChildren($reference),
                         );
 
                         $children->push(new ArrayData($childNav));
@@ -100,6 +104,16 @@ class PageService {
         }
 
         return $navigation;
+    }
+
+    public function getSectionChildren($reference, $levelsDown = 1) {
+        $service = $this->controller->styleguide_service;
+        $children = $service->getSectionChildren($reference,$levelsDown);
+        foreach ($children as $child) {
+            $child->Link = $this->controller->Link('style-guide', $child->getReferenceID());
+            $child->Children = $this->getSectionChildren($child->getReference(), 1);
+        }
+        return $children;
     }
 
     public function getActivePage() {

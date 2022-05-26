@@ -7,7 +7,7 @@ use SilverStripe\Core\Injector\Injector;
 use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
 use SilverStripe\CMS\Controllers\ContentController;
-use BenManu\StyleGuide\StyleGuideController;
+use SilverStripe\Debug\Debug;
 
 /**
  * StyleGuideController
@@ -130,8 +130,8 @@ class StyleGuideController extends ContentController {
     public function setRequirements() {
 
         // styleguide requirements
-        Requirements::css( 'benmanu/silverstripe-styleguide: dist/css/screen.css');
-        Requirements::javascript('benmanu/silverstripe-styleguide: dist/js/core.js');
+        Requirements::css( 'benmanu/silverstripe-styleguide: dist/css/styles.css');
+        Requirements::javascript('benmanu/silverstripe-styleguide: dist/js/app.js');
         Requirements::javascript($this->config()->prettify_url);
 
         // theme requirements
@@ -168,13 +168,13 @@ class StyleGuideController extends ContentController {
         return $this->pageService->getPages();
     }
 
-    /**
-     * Return sections for sub-navigation.
-     * @return ArrayList
-     */
-    public function getSubNavigation() {
-        return $this->getSections();
-    }
+    // /**
+    //  * Return sections for sub-navigation.
+    //  * @return ArrayList
+    //  */
+    // public function getSubNavigation() {
+    //     return $this->getSections();
+    // }
 
     /**
      * Return sections filtered by the current url action.
@@ -216,3 +216,15 @@ class StyleGuideController extends ContentController {
     }
 
 }
+/*
+BenManu\StyleGuide\StyleGuideController:
+  extensions:
+    - QI\App\Extension\StyleGuideExtension
+  paths: 'themes/main/src/scss/'         # the base folder used to render kss.
+  css_files:
+    # - 'themes/main/dist/css/styles.css'    # any css theme files to include in the styleguide.
+    - 'themes/main/dist/css/styleguide.css'    # any css theme files to include in the styleguide.
+  js_files:
+    - 'themes/main/dist/js/index.js'
+    - 'require-inplace/client/dist/require-inplace.js'
+*/
