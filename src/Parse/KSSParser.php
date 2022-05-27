@@ -1,7 +1,8 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Parse;
 
+use QuinnInteractive\StyleGuide\Model\KSSSection;
 use splFileObject;
 
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Dev;
 
 
 use SilverStripe\Dev\FixtureFactory;
-use BenManu\StyleGuide\StyleGuide;
+use QuinnInteractive\StyleGuide\Service\StyleGuide;
 
 
 class StyleGuideFixtureFactory extends FixtureFactory {

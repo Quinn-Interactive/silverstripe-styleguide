@@ -1,6 +1,6 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Parse;
 
 /**
  * Parser
@@ -8,6 +8,7 @@ namespace BenManu\StyleGuide;
  * Accepts an array of directories and parses them stylesheet files
  */
 
+use QuinnInteractive\StyleGuide\Model\Section;
 use Symfony\Component\Finder\Finder;
 use splFileObject;
 

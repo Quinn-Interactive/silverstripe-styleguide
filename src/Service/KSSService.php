@@ -1,7 +1,8 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Service;
 
+use QuinnInteractive\StyleGuide\Parse\KSSParser;
 use SilverStripe\ORM\ArrayList;
 
 class KSSService implements StyleGuide {

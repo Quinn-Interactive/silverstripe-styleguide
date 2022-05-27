@@ -1,7 +1,9 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Control;
 
+use QuinnInteractive\StyleGuide\Parse\YamlParser;
+use QuinnInteractive\StyleGuide\Service\PageService;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\View\Requirements;

@@ -1,6 +1,6 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Dev;
 
 
 use SilverStripe\ORM\ArrayList;

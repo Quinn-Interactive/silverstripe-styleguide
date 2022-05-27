@@ -1,14 +1,14 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Parse;
 
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\YamlFixture;
 use SilverStripe\Control\Director;
 use Exception;
-use BenManu\StyleGuide\StyleGuideFixtureFactory;
-use BenManu\StyleGuide\StyleGuideBlueprint;
-use BenManu\StyleGuide\StyleGuide;
+use QuinnInteractive\StyleGuide\Dev\StyleGuideFixtureFactory;
+use QuinnInteractive\StyleGuide\Dev\StyleGuideBlueprint;
+use QuinnInteractive\StyleGuide\Service\StyleGuide;
 
 /**
  * YamlParser

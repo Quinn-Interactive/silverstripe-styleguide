@@ -4,12 +4,13 @@
  * PageService
  */
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Service;
 
+use QuinnInteractive\StyleGuide\Parse\YamlParser;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-use BenManu\StyleGuide\StyleGuide;
+use QuinnInteractive\StyleGuide\Service\StyleGuide;
 use SilverStripe\Dev\Debug;
 
 class PageService {

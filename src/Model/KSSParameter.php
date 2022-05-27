@@ -1,6 +1,6 @@
 <?php
 
-namespace BenManu\StyleGuide;
+namespace QuinnInteractive\StyleGuide\Model;
 
 use SilverStripe\View\ViewableData;
 
