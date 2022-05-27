@@ -1,23 +1,25 @@
 # silverstripe-styleguide
-[![Build Status](https://travis-ci.org/benmanu/silverstripe-styleguide.svg?branch=experiments%2Fpages)](https://travis-ci.org/benmanu/silverstripe-styleguide)
+
 Generates a styleguide for a SilverStripe theme using CSS documentation.
 
 ## Requirements
+
 SilverStripe 4 or higher
 
 ## Installation
 
-    $ composer require benmanu/silverstripe-styleguide
+    composer require benmanu/silverstripe-styleguide
 
 ## Basic Usage
+
 Define the base css/scss folder through the site config.
 
     BenManu\StyleGuide\StyleGuideController:
-      paths: 'styleguide/scss' 				// the base folder used to render kss.
+      paths: 'styleguide/scss'     // the base folder used to render kss.
       css_files:
-        - 'themes/default/css/screen.css' 	// any css theme files to include in the styleguide.
+        - 'themes/default/css/screen.css'  // any css theme files to include in the styleguide.
       js_files:
-        - 'themes/default/js/script.js' 	// any js theme files to include in the styleguide.
+        - 'themes/default/js/script.js'  // any js theme files to include in the styleguide.
 
 Opens up a controller route `/sg`.
 
@@ -26,6 +28,7 @@ Sub-navigation sections are generated with tags of `Styleguide 1.1`, `Styleguide
 Sub-navigation children are made up of section modifiers like `.btn-default`, `.btn-primary`.
 
 ## Example
+
 You can use the styleguide module scss/css as an example using the below config in your site `_config/config.yml` file.
 
     BenManu\StyleGuide\StyleGuideController:
@@ -34,6 +37,7 @@ You can use the styleguide module scss/css as an example using the below config 
         - 'styleguide/dist/css/screen.css'
 
 ## Kitchen Sink CSS Example
+
     /*
     #Components
 
@@ -81,6 +85,7 @@ All comment descriptions are treated as markdown and parsed through [parsedown](
 ### Section And SectionTemplate
 
 ## Fixtures
+
 A yml fixture file can be created in the **(project)/styleguide/** directory called **fixture.yml**, used to populate template variables.
 
 All template files should be placed under the key **Template**, example:
@@ -115,6 +120,7 @@ Alternatively you can reference other non-template values to populate relationsh
         FooterContent: =>StyleGuide.main.Content
 
 ## Pages
+
 A yml fixture file can be created in the **(project)/styleguide/** directory called **pages.yml**, used to create additional main and children pages. The `Template` parameter should be the same name as a SilverStripe template file in your theme.
 
 All template files should be placed under the key **Page**, example:
@@ -164,5 +170,6 @@ Alternatively you can populate a `Children` parameter referencing a list of chil
         Children: =>Children.child1, =>Children.child2
 
 ## Project Links
- * [KSS](http://warpspire.com/kss/)
- * [parsedown](http://parsedown.org/)
+
+* [KSS](http://warpspire.com/kss/)
+* [parsedown](http://parsedown.org/)
