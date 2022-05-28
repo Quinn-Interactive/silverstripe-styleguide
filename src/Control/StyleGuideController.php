@@ -218,15 +218,3 @@ class StyleGuideController extends ContentController {
     }
 
 }
-/*
-BenManu\StyleGuide\StyleGuideController:
-  extensions:
-    - QI\App\Extension\StyleGuideExtension
-  paths: 'themes/main/src/scss/'         # the base folder used to render kss.
-  css_files:
-    # - 'themes/main/dist/css/styles.css'    # any css theme files to include in the styleguide.
-    - 'themes/main/dist/css/styleguide.css'    # any css theme files to include in the styleguide.
-  js_files:
-    - 'themes/main/dist/js/index.js'
-    - 'require-inplace/client/dist/require-inplace.js'
-*/
