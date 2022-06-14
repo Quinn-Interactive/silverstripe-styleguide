@@ -132,8 +132,8 @@ class StyleGuideController extends ContentController {
     public function setRequirements() {
 
         // styleguide requirements
-        Requirements::css( 'benmanu/silverstripe-styleguide: dist/css/styles.css');
-        Requirements::javascript('benmanu/silverstripe-styleguide: dist/js/app.js');
+        Requirements::css( 'quinninteractive/silverstripe-styleguide: dist/css/styles.css');
+        Requirements::javascript('quinninteractive/silverstripe-styleguide: dist/js/app.js');
         Requirements::javascript($this->config()->prettify_url);
 
         // theme requirements

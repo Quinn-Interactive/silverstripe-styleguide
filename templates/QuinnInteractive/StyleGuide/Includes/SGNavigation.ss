@@ -13,7 +13,7 @@
                     <% if $Title == 'Style Guide' %>
                         <input type="search" class="sg-nav__search" data-sg-nav-search name="sg-search" placeholder="Search" value="" />
                     <% end_if %>
-                    <% include BenManu/StyleGuide/SGSecondaryNavigation %>
+                    <% include QuinnInteractive/StyleGuide/SGSecondaryNavigation %>
                 <% end_if %>
             </li>
             <% end_loop %>

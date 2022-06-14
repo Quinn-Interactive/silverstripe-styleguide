@@ -11,7 +11,7 @@
             <% end_if %>
 
             <% if $Children.Count %>
-                <% include BenManu/StyleGuide/SGSecondaryNavigation %>
+                <% include QuinnInteractive/StyleGuide/SGSecondaryNavigation %>
             <% end_if %>
         </li>
     <% end_loop %>
