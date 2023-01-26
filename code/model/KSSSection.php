@@ -225,7 +225,7 @@ class KSSSection extends Section {
                 if(!empty($lineParts)) {
                     $description = trim(implode(' - ', $lineParts));
                 }
-                $parameter = new KSSParameter($name, $description, $this);
+                $parameter = new KSSParameter($name, $this, $description);
 
                 $parameters->push($parameter);
             }
@@ -436,7 +436,7 @@ class KSSSection extends Section {
         if ($a->getDepth() == $b->getDepth()) {
             return self::alphaDepthScoreSort($a, $b);
         }
-        return $a->getDepth() > $b->getDepth();
+        return ($a->getDepth() > $b->getDepth()) ? 1 : -1;
     }
 
     /**

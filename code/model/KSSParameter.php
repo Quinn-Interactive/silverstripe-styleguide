@@ -30,7 +30,7 @@ class KSSParameter extends ViewableData {
         'Description' 	=> 'Varchar'
     );
 
-    public function __construct($name, $description = '', $section) {
+    public function __construct($name, $section, $description = '') {
         $this->section = $section;
 
         $this->setName($name);
