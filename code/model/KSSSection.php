@@ -99,7 +99,7 @@ class KSSSection extends Section {
      * @return void
      */
     public function getMarkupNormal($replacement = '') {
-        return str_replace('$modifierClass', $replacement, $this->getMarkup());
+        return str_replace('$modifierClass', $replacement, $this->getMarkup() ?? '');
     }
 
     /**
