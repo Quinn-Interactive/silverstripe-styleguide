@@ -13,11 +13,11 @@ SilverStripe 4 or higher
 Define the base css/scss folder through the site config.
 
     BenManu\StyleGuide\StyleGuideController:
-      paths: 'styleguide/scss' 				// the base folder used to render kss.
+      paths: 'styleguide/scss' # the base folder used to render kss.
       css_files:
-        - 'themes/default/css/screen.css' 	// any css theme files to include in the styleguide.
+        - 'themes/default/css/screen.css' # any css theme files to include in the styleguide.
       js_files:
-        - 'themes/default/js/script.js' 	// any js theme files to include in the styleguide.
+        - 'themes/default/js/script.js' # any js theme files to include in the styleguide.
 
 Opens up a controller route `/sg`.
 
