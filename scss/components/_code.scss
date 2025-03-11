@@ -1,11 +1,13 @@
+@use "../settings/colors";
+
 .sg-code {
     overflow: hidden;
 }
 
 .sg-prettyprint,
 pre.prettyprint.sg-prettyprint {
-    background-color: $color-code-bkgnd;
-    border: 1px solid $color-border !important;
+    background-color: colors.$color-code-bkgnd;
+    border: 1px solid colors.$color-border !important;
     border-width: 0 1px 1px !important;
     overflow: auto;
     padding: 0.5em 1em;

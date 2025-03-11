@@ -1,5 +1,8 @@
+@use "../mixins/include-media";
+@use "../settings/layout-settings";
+
 .sg-layout {
-    @include media('>=tablet') {
+    @include include-media.media('>=tablet') {
         display: flex;
         flex-direction: row;
         height: 100%;
@@ -18,9 +21,9 @@
     right: 0;
     top: 0;
     transition: margin-right 0.25s ease;
-    width: $nav-width;
+    width: layout-settings.$nav-width;
 
-    @include media('>=tablet') {
+    @include include-media.media('>=tablet') {
         flex: 0 0 auto;
         height: 100%;
         max-width: none;
@@ -29,14 +32,14 @@
     }
 
     &.-hide {
-        margin-right: -$nav-width;
+        margin-right: -(layout-settings.$nav-width);
     }
 }
 
 .sg-layout-content {
     padding: 0 1rem;
 
-    @include media('>=tablet') {
+    @include include-media.media('>=tablet') {
         flex: 1 1 auto;
         overflow: auto;
         padding: 0 2rem;

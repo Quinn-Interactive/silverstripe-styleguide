@@ -1,5 +1,3 @@
-// https://github.com/que-etc/resize-observer-polyfill
-import ResizeObserver from 'resize-observer-polyfill';
 import debounce from 'lodash/debounce';
 
 const iframeResizer = ($iframe) => {

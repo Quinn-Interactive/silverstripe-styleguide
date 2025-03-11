@@ -1,5 +1,8 @@
+@use "sass:color";
+@use "../settings/colors";
+
 .sg-nav {
-    background-color: $color-nav-bkgnd;
+    background-color: colors.$color-nav-bkgnd;
     height: 100%;
     overflow: auto;
     width: 100%;
@@ -8,7 +11,7 @@
         appearance: none;
         background-color: transparent;
         border: 0;
-        color: $color-nav-page;
+        color: colors.$color-nav-page;
         font-size: 1.25em;
         font-weight: bold;
         padding: 0.25em 0.5em;
@@ -17,15 +20,15 @@
         top: 0;
 
         [data-nav].-hide & {
-            color: $color-nav;
+            color: colors.$color-nav;
 
             &:hover {
-                color: $color-nav-bkgnd;
+                color: colors.$color-nav-bkgnd;
             }
         }
 
         &:hover {
-            color: $color-nav-bkgnd;
+            color: colors.$color-nav-bkgnd;
         }
     }
 
@@ -67,37 +70,37 @@
     }
 
     &__link {
-        color: $color-nav;
+        color: colors.$color-nav;
         display: block;
         margin: 0;
         padding: 0.25em 1rem;
         text-decoration: none;
 
         &:link {
-            color: $color-nav;
+            color: colors.$color-nav;
         }
 
         &:visited {
-            color: $color-nav;
+            color: colors.$color-nav;
         }
 
         &:hover {
-            background-color: lighten($color-nav-bkgnd-active, 10%);
-            color: $color-nav;
+            background-color: color.adjust(colors.$color-nav-bkgnd-active, $lightness: 10%);
+            color: colors.$color-nav;
         }
 
         &:active {
-            background-color: $color-nav-bkgnd-active;
-            color: $color-nav;
+            background-color: colors.$color-nav-bkgnd-active;
+            color: colors.$color-nav;
         }
 
         &.-active {
-            background-color: $color-nav-bkgnd-active;
+            background-color: colors.$color-nav-bkgnd-active;
         }
 
         &.-page {
-            background-color: $color-nav-page-bkgnd;
-            color: $color-nav-page;
+            background-color: colors.$color-nav-page-bkgnd;
+            color: colors.$color-nav-page;
             padding: 0.5em 1rem;
 
             &.-active {
@@ -126,7 +129,7 @@
         }
 
         &.-mod {
-            color: $color-nav-mod;
+            color: colors.$color-nav-mod;
             font-size: 0.8em;
         }
     }
@@ -165,7 +168,7 @@
 
         html.js & {
             appearance: none;
-            border: 1px solid $color-border;
+            border: 1px solid colors.$color-border;
             display: block;
             font-size: 1em;
             line-height: 1.25;

@@ -17,7 +17,7 @@ mix.setPublicPath("dist");
 mix.sass("scss/styles.scss", "css");
 
 // js
-mix.js("src/javascript/app.js", "js").polyfill({
+mix.js("javascript/app.js", "js").polyfill({
     enabled: true,
     useBuiltIns: "usage",
     targets: false, // setting to false uses package.json's browserlist info

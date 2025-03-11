@@ -1,9 +1,9 @@
-@import 'components/body';
-@import 'components/html';
-@import 'components/prettyprint'; // should come before code
-@import 'components/code';
-@import 'components/layout';
-@import 'components/nav';
-@import 'components/section';
-@import 'components/example';
-@import 'components/swatch';
+@use 'components/body';
+@use 'components/html';
+@use 'components/prettyprint'; // should come before code
+@use 'components/code';
+@use 'components/layout';
+@use 'components/nav';
+@use 'components/section';
+@use 'components/example';
+@use 'components/swatch';

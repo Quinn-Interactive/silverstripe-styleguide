@@ -1,4 +1,3 @@
-require('srcdoc-polyfill');
 require('./components/html-js');
 require('./components/nav');
 require('./components/clipboard-button');

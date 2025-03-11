@@ -1,6 +1,8 @@
+@use "../settings/colors";
+
 .sg-example {
     &__example {
-        border: 1px solid $color-border;
+        border: 1px solid colors.$color-border;
         border-bottom: 0;
         box-sizing: border-box;
         padding: 1rem;
@@ -14,7 +16,7 @@
     }
 
     &__controls {
-        border: 1px solid $color-border;
+        border: 1px solid colors.$color-border;
         font-size: 16px;
         padding: 0.25em 16px;
         position: relative;
@@ -32,8 +34,8 @@
     }
 
     &__filepath {
-        background-color: $color-code-bkgnd;
-        border: 1px solid $color-border;
+        background-color: colors.$color-code-bkgnd;
+        border: 1px solid colors.$color-border;
         border-width: 0 1px 1px;
         color: #000;
         font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
@@ -70,7 +72,7 @@
     }
 
     &__iframeWidth {
-        color: $color-border;
+        color: colors.$color-border;
         float: left;
         font-size: 14px;
         line-height: 24px;
