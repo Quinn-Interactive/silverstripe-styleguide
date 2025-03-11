@@ -31,11 +31,12 @@ $items.forEach(($item) => {
     if ($sublist && !$sublist.classList.contains('-section') && !$sublist.classList.contains('-active')) {
         const $button = document.createElement('button');
         $button.classList.add('sg-nav__toggle');
-        $button.textContent = 'show';
+        $button.setAttribute('title', 'show');
         $button.addEventListener('click', () => {
             $sublist.classList.toggle('-open');
             $button.classList.toggle('-open');
-            $button.textContent = $sublist.classList.contains('-open') ? 'hide' : 'show';
+            const title = $sublist.classList.contains('-open') ? 'hide' : 'show';
+            $button.setAttribute('title', title);
         });
         $item.prepend($button);
     }
