@@ -41,7 +41,6 @@
     "watch": "^1.0.2"
   },
   "dependencies": {
-    "clipboard": "^2.0.4",
     "core-js": "3",
     "interactjs": "^1.6.1",
     "laravel-mix-polyfill": "^2.0.0",
