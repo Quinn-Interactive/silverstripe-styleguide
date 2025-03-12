@@ -202,7 +202,7 @@ class StyleGuideController extends ContentController {
      * @return String
      */
     public function Link($action = null, $childAction = null) {
-        return self::getLink($action, $childAction);
+        return self::get_link($action, $childAction);
     }
 
     /**
@@ -211,7 +211,7 @@ class StyleGuideController extends ContentController {
      * @param  String $childAction
      * @return String
      */
-    public static function getLink($action = null, $childAction = null) {
+    public static function get_link($action = null, $childAction = null) {
         return Controller::join_links('sg', $action, $childAction);
     }
 

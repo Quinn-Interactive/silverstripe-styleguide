@@ -77,7 +77,7 @@ class PageService {
 
                     foreach($item->Children as $childItem) {
                         $childTitle = $childItem->Title;
-                        $childUrlSegment = ($item->ID == "styleGuide" ? $childItem->getLink() : $this->fixURLSegment($childTitle));
+                        $childUrlSegment = ($item->ID == "styleGuide" ? $childItem->Link() : $this->fixURLSegment($childTitle));
                         $childActive = $this->isActive($urlSegment, $childUrlSegment);
                         $childLink = $this->controller->Link($urlSegment, $childUrlSegment);
                         $reference = $childItem->getReference();

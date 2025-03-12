@@ -1,7 +1,11 @@
 <ul class="sg-nav__list<% if $Active %> -active<% end_if %>" data-sg-nav-list<% if $Title == 'Style Guide' %> data-sg-nav-searchable<% end_if %>>
     <% loop $Children %>
         <li class="sg-nav__item -sub -depth-$Depth<% if $Active %> -active<% end_if %>" data-sg-nav-item>
-            <a class="sg-nav__link -sub -depth-$Depth<% if $Active %> -active<% end_if %>" data-sg-nav-link href="$Link">$Title</a>
+            <% if $Heading > 1 %>
+                <a class="sg-nav__link -sub -depth-$Depth<% if $Active %> -active<% end_if %>" data-sg-nav-link href="sg/style-guide/$Link">$Title</a>
+            <% else %>
+                <a class="sg-nav__link -sub -depth-$Depth<% if $Active %> -active<% end_if %>" data-sg-nav-link href="$Link">$Title</a>
+            <% end_if %>
             <% if $Active && $Modifiers %>
                 <ul class="sg-nav__list -mod -depth-$Depth -active">
                     <% loop $Modifiers %>

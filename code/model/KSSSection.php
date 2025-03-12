@@ -726,8 +726,9 @@ class KSSSection extends Section {
      * Returns the link to this section formatted on the StyleGuideController.
      * @return String
      */
-    public function getLink() {
-        return $this->getReferenceID();
+    public function Link() {
+        $name = $this->getReferenceID();
+        return $name;
     }
 
     public function forTemplate() {
