@@ -146,6 +146,8 @@ class StyleGuideController extends ContentController {
                 Requirements::javascript($file);
             }
         }
+
+        $this->extend('afterSetRequirements');
     }
 
     /**
